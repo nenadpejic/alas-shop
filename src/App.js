@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
 import "./App.scss";
 
 const App = () => {
@@ -13,11 +14,11 @@ const App = () => {
         {/* <Route exact path="/">
           <Landing />
         </Route>
-        <Route path="/singup">
-          <Singup />
+        <Route path="/signup">
+          <Signup />
         </Route>
-        <Route path="/singin">
-          <Singin />
+        <Route path="/signin">
+          <Signin />
         </Route>
         <Route path="/home">
           <Home />

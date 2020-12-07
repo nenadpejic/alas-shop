@@ -4,9 +4,11 @@ const Footer = () => {
   const year = { date: new Date() };
 
   return (
-    <div className="footer">
-      <p className="footer-para">Copyright &copy; {year.date.getFullYear()} </p>
-    </div>
+    <footer className="footer">
+      <div className="wrapper">
+        <p>Copyright &copy; {year.date.getFullYear()} </p>
+      </div>
+    </footer>
   );
 };
 
