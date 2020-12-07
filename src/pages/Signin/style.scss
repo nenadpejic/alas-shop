@@ -2,6 +2,8 @@
 @import '../../scss/mixin';
 
 .signin {
+    // position: relative;
+    // z-index: 2;
 
     .wrapper {
         height: 100vh;
@@ -62,6 +64,7 @@
                 padding: 10px;
                 color: $light-green;
                 font-weight: bold;
+                text-decoration: none;
             }
         }
     }
