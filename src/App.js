@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+// import Home from "./pages/Home";
 import "./App.scss";
 
 const App = () => {
@@ -14,8 +15,8 @@ const App = () => {
       <Router>
         <Route exact path="/">
           <Header/>
-          <Footer/>
           <Landing />
+          <Footer/>
         </Route>
         <Route path="/signup">
           <Signup />
