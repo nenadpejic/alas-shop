@@ -3,19 +3,20 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Landing from "./pages/Landing";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+// import Home from "./pages/Home";
 import "./App.scss";
 
 const App = () => {
   return (
     <div className="app">
       <Router>
-        <Header />
-        <Route path="/home">
-          <Home />
-        </Route>
-        {/* <Route exact path="/">
+        <Route exact path="/">
+          <Header />
           <Landing />
+          <Footer />
         </Route>
         <Route path="/signup">
           <Signup />
@@ -24,12 +25,15 @@ const App = () => {
           <Signin />
         </Route>
         <Route path="/home">
-          <Home />
+          <Header />
+          {/* <Home /> */}
+          <Footer />
         </Route>
         <Route path="/history">
-          <History />
-        </Route> */}
-        <Footer />
+          <Header />
+          {/* <History /> */}
+          <Footer />
+        </Route>
       </Router>
     </div>
   );
