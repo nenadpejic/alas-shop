@@ -6,9 +6,20 @@ $dark-gray: #222;
 $dark-gray-alpha: rgba(34,34,34,0.7);
 
 // Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;800&display=swap');
+
+$roboto-slab: 'Roboto Slab', serif;
+
+$font-weight: (
+    'light': 400,
+    'medium': 600,
+    'heavy': 800
+);
 
 $font-size: (
-    small: 15px,
-    medium: 20px,
-    large: 40px
-)
+    'small': 15px,
+    'medium': 20px,
+    'medium+': 25px,
+    'medium++': 30px,
+    'large': 40px
+);

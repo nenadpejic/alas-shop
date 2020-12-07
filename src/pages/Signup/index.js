@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.scss';
 import logo from "../../assets/logo.png";
-import {auth} from "../../services/fire";
+import { auth } from "../../services/fire";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -28,8 +28,8 @@ const Signup = () => {
   return (
     <main className="signup">
       <div className="wrapper">
-        <Link to="/">
-          <img src={logo} alt="logo" />
+        <Link to="/" className="logoLink">
+          <img src={logo} alt="logo" className="logo" />
         </Link>
         <h1>Sign up</h1>
         <form className="signup-form" onSubmit={handleSubmit}>
