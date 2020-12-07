@@ -3,29 +3,36 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Landing from "./pages/Landing";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
 import "./App.scss";
 
 const App = () => {
   return (
     <div className="app">
       <Router>
-        <Header />
-        {/* <Route exact path="/">
+        <Route exact path="/">
+          <Header/>
+          <Footer/>
           <Landing />
         </Route>
-        <Route path="/singup">
-          <Singup />
+        <Route path="/signup">
+          <Signup />
         </Route>
-        <Route path="/singin">
-          <Singin />
+        <Route path="/signin">
+          <Signin />
         </Route>
         <Route path="/home">
-          <Home />
+          <Header/>
+          {/* <Home /> */}
+          <Footer/>
         </Route>
         <Route path="/history">
-          <History />
-        </Route> */}
-        <Footer />
+          <Header/>
+          {/* <History /> */}
+          <Footer/>
+        </Route>
       </Router>
     </div>
   );
