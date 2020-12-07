@@ -1,0 +1,46 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
+.landing {
+    min-height: calc(100vh - 150px);
+
+    .wrapper {
+
+        @include tablet {
+            padding: 0 15px;
+        }
+        @include mobile {
+            padding: 0 10px;
+        }
+
+        .landingTitle {
+            text-align: center;
+            padding: 50px;
+            color: $white;
+        }
+        .shopName {
+            color: $light-green;
+            font-size: map-get($font-size, 'large');
+            font-weight: map-get($font-weight, 'heavy');
+        }
+
+        p {
+            width: 800px;
+            margin: auto;
+            color: $white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: map-get($font-size, 'medium');
+            background: $dark-gray-alpha;
+            border-radius: 10px;
+            padding: 10px;
+
+            @include tablet {
+                width: 100%;
+            }
+            @include mobile {
+                width: 100%;
+            }
+        }
+    }
+}

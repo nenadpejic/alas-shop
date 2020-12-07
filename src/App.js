@@ -1,6 +1,6 @@
 // import {auth, firestore} from "./services/fire";
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
@@ -8,8 +8,19 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Home from "./pages/Home";
 import "./App.scss";
+import { auth } from "./services/fire";
 
 const App = () => {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    console.log("useEffect in App triggered!");
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+      console.log(user);
+    });
+  }, []);
+
   return (
     <div className="app">
       <Router>
@@ -18,17 +29,21 @@ const App = () => {
           <Landing />
           <Footer />
         </Route>
+
         <Route path="/signup">
-          <Signup />
+          {user ? <Redirect to="/home" /> : <Signup />}
         </Route>
+
         <Route path="/signin">
-          <Signin />
+          {user ? <Redirect to="/home" /> : <Signin />}
         </Route>
+
         <Route path="/home">
           <Header />
-          <Home />
+          {user ? <Home /> : <Redirect to="/" />}
           <Footer />
         </Route>
+
         <Route path="/history">
           <Header />
           {/* <History /> */}
