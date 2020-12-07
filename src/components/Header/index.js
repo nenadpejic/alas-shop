@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo.png";
-import './Header.scss';
+import Logo from "../../assets/logo.png";
+import './style.scss';
 
 const Header = () => {
   return (
@@ -12,10 +12,10 @@ const Header = () => {
         </Link>
         <ul className="nav">
           <li>
-            <Link to="/singin">Sing up</Link>
+            <Link to="/signup">Sing up</Link>
           </li>
           <li>
-            <Link to="/singup">Sing in</Link>
+            <Link to="/signin">Sing in</Link>
           </li>
         </ul>
       </div>
