@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.scss';
+import logo from "../../assets/logo.png";
+import {auth} from "../../services/fire";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +12,14 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    auth.createUserWithEmailAndPassword(email, password)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
     setEmail("");
     setPassword("");
     setConfirmPassword("");
@@ -18,6 +28,9 @@ const Signup = () => {
   return (
     <main className="signup">
       <div className="wrapper">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
         <h1>Sign up</h1>
         <form className="signup-form" onSubmit={handleSubmit}>
           <label htmlFor="signup-form-email">Email</label>

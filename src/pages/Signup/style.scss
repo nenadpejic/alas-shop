@@ -2,8 +2,6 @@
 @import '../../scss/mixin';
 
 .signup {
-    position: relative;
-    z-index: 2;
 
     .wrapper {
         height: 100vh;
@@ -11,6 +9,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        & img {
+            width: 80px;
+        }
 
         & h1 {
             color: $white;
