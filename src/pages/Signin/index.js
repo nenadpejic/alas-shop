@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {Link} from "react-router-dom";
 import './style.scss';
+import logo from "../../assets/logo.png";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,9 @@ const Signin = () => {
   return ( 
     <main className="signin">
       <div className="wrapper">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
         <h1>Sign in</h1>
         <form className="signin-form" onSubmit={handleSubmit}>
           <div>
