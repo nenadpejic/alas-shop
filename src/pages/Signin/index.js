@@ -2,16 +2,32 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.scss';
 import logo from "../../assets/logo.png";
+import {auth} from "../../services/fire";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setEmail("");
-    setPassword("");
+    auth.signInWithEmailAndPassword(email, password)
+      .then(res => {
+        // console.log(res);
+      })
+      .catch(err => {
+        if (err.code === "auth/invalid-email") {
+          setErrMsg("Invalid email address.")
+        } else if (err.code === "auth/user-disabled") {
+          setErrMsg("This account has been disabled.")
+        } else if (err.code === "auth/user-not-found") {
+          setErrMsg("There is no account with this email.")
+        } else if (err.code === "auth/wrong-password") {
+          setErrMsg("Wrong password.")
+        };
+        setEmail("");
+        setPassword("");
+      });
   }
 
   return (
@@ -29,6 +45,7 @@ const Signin = () => {
           <input id="signin-form-password" type="password" placeholder="Enter password.."
             onChange={(e) => setPassword(e.target.value)} value={password} />
           <button className="submitBtn" type="submit">Sign in</button>
+          <p>{errMsg}</p>
         </form>
         <p className="existingAcc">Need an account? <Link to="/signup">Sign up</Link></p>
       </div>
