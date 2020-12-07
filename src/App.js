@@ -11,6 +11,9 @@ const App = () => {
     <div className="app">
       <Router>
         <Header />
+        <Route path="/home">
+          <Home />
+        </Route>
         {/* <Route exact path="/">
           <Landing />
         </Route>
