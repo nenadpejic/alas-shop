@@ -1,0 +1,68 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
+.signup {
+
+    .wrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & h1 {
+            color: $white;
+            font-size: 60px;
+            padding: 0 0 20px 0;
+        }
+
+        & .signup-form {
+            width: 300px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: $dark-gray-alpha;
+
+            & label {
+                text-align: center;
+                color: $white;
+                padding: 5px;
+                font-weight: bold;
+            }
+
+            & input {
+                width: 200px;
+                margin-bottom: 20px;
+                padding: 5px;
+            }
+
+            & .submitBtn {
+                width: 100px;
+                height: 30px;
+                border-radius: 5px;
+                font-weight: bold;
+                outline: none;
+                border: none;
+                background: $light-green;
+                color: white;
+            }
+        }
+
+        & .existingAcc {
+            color: $white;
+            background: $dark-gray-alpha;
+            padding: 5px;
+            border-radius: 10px;
+
+            & a {
+                padding: 10px;
+                color: $light-green;
+                font-weight: bold;
+            }
+        }
+    }
+}

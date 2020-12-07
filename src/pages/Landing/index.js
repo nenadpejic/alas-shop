@@ -1,13 +1,13 @@
 import './style.scss';
 
 const Landing = () => {
-  return ( 
+  return (
     <main className="landing">
       <div className="wrapper">
-      <h1>Landing</h1>
+        <h1>Landing</h1>
       </div>
     </main>
-   );
+  );
 }
- 
+
 export default Landing;
