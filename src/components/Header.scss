@@ -1,0 +1,43 @@
+@import '../scss/variables';
+@import '../scss/mixin';
+
+.header {
+
+    & .wrapper {
+        display: flex;
+        justify-content: space-between;
+
+        & .logo {
+            width: 100px;
+            padding: 5px 10px;
+            margin-left: 10px;
+            background: white;
+            border-radius: 20px;
+        }
+
+        & .nav {
+            padding: 5px 10px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & li {
+                list-style-type: none;
+                margin: 10px;
+
+                & a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100px;
+                    height: 40px;
+                    text-decoration: none;
+                    background: $white;
+                    color: $black;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
