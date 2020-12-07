@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import './style.scss';
 import logo from "../../assets/logo.png";
 import {auth} from "../../services/fire";
@@ -24,36 +24,30 @@ const Signup = () => {
     setPassword("");
     setConfirmPassword("");
   }
-  
-  return ( 
+
+  return (
     <main className="signup">
       <div className="wrapper">
-      <Link to="/">
+        <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
         <h1>Sign up</h1>
         <form className="signup-form" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="signup-form-email">Email</label>
-            <input id="signup-form-email" type="email" placeholder="Enter email.."
-            onChange={(e) => setEmail(e.target.value)} value={email}/>
-          </div>
-          <div>
-            <label htmlFor="signup-form-password">Password</label>
-            <input id="signup-form-password" type="password" placeholder="Enter password.."
-            onChange={(e) => setPassword(e.target.value)} value={password}/>
-          </div>
-          <div>
-            <label htmlFor="signup-form-confirm-password">Confirm Password</label>
-            <input id="signup-form-confirm-password" type="password" placeholder="Confirm password.."
-            onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword}/>
-          </div>
-          <button type="submit">Sign up</button>
+          <label htmlFor="signup-form-email">Email</label>
+          <input id="signup-form-email" type="email" placeholder="Enter email.."
+            onChange={(e) => setEmail(e.target.value)} value={email} />
+          <label htmlFor="signup-form-password">Password</label>
+          <input id="signup-form-password" type="password" placeholder="Enter password.."
+            onChange={(e) => setPassword(e.target.value)} value={password} />
+          <label htmlFor="signup-form-confirm-password">Confirm Password</label>
+          <input id="signup-form-confirm-password" type="password" placeholder="Confirm password.."
+            onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} />
+          <button className="submitBtn" type="submit">Sign up</button>
         </form>
-        <p>Already have an account? <Link to="/signin">Sign in</Link></p>
+        <p className="existingAcc">Already have an account?<Link to="/signin">Sign in</Link></p>
       </div>
-    </main>
-   );
+    </main >
+  );
 }
- 
+
 export default Signup;

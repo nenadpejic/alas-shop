@@ -12,11 +12,13 @@ body {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
 }
 
 .wrapper {
-    border: 2px solid white;
+    border: 1px solid white;
     max-width: 1200px;
     margin: auto;
 }
