@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.png";
-import './style.scss';
+import "./style.scss";
 
 const Header = () => {
   return (
@@ -12,10 +12,10 @@ const Header = () => {
         </Link>
         <ul className="nav">
           <li>
-            <Link to="/signup">Sing up</Link>
+            <Link to="/signup">Sign up</Link>
           </li>
           <li>
-            <Link to="/signin">Sing in</Link>
+            <Link to="/signin">Sign in</Link>
           </li>
         </ul>
       </div>
