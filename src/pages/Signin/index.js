@@ -11,6 +11,8 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrMsg("");
+    
     auth.signInWithEmailAndPassword(email, password)
       .then(res => {
         // console.log(res);
@@ -25,8 +27,6 @@ const Signin = () => {
         } else if (err.code === "auth/wrong-password") {
           setErrMsg("Wrong password.")
         };
-        setEmail("");
-        setPassword("");
       });
   }
 
