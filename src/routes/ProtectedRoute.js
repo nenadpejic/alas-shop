@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import {Route, Redirect} from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ProtectedRoute = ({children, access, ...rest}) => {
   const user = useContext(UserContext);
@@ -17,7 +19,11 @@ const ProtectedRoute = ({children, access, ...rest}) => {
     return ( 
       <Route {...rest}>
         {user
-        ? children
+        ? <>
+          <Header />
+          children
+          <Footer />
+        </>
         : <Redirect to="/"/>}
       </Route>
      );

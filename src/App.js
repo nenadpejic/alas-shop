@@ -28,15 +28,11 @@ const App = () => {
         </ProtectedRoute>
 
         <ProtectedRoute path="/home" access="private">
-          <Header />
           <Home />
-          <Footer />
         </ProtectedRoute>
 
         <ProtectedRoute path="/history" access="private">
-          <Header />
           {/* <History /> */}
-          <Footer />
         </ProtectedRoute>
       </Router>
     </UserContextProvider>
