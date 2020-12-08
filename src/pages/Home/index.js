@@ -7,7 +7,9 @@ const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [searchedListItem, setsearchedListItem] = useState([]);
   const [productsListItem, setProductsListItem] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
+  //Fake Data
   const fakeData = [
     { food: "jaja", id: 0 },
     { food: "mleko", id: 1 },
@@ -18,16 +20,21 @@ const Home = () => {
   ];
 
   const handleChange = (e) => {
+    setIsActive(true);
+    console.log(isActive);
     setInputValue(e.target.value);
     let newFakeData = [...fakeData];
     newFakeData = newFakeData.filter((elem) => elem.food === e.target.value);
     setsearchedListItem(newFakeData);
   };
+  console.log(isActive);
 
   const handleProductList = (param) => {
     let products = [...productsListItem];
     products.push(param);
     setProductsListItem(products);
+    setIsActive(false);
+    setInputValue("");
   };
 
   return (
@@ -42,11 +49,16 @@ const Home = () => {
           onChange={handleChange}
           value={inputValue}
         />
-        <SearchedUL
-          searchedListItem={searchedListItem}
-          handleProductList={handleProductList}
-        />
-        <ProductUL productsListItem={productsListItem} />
+        <div className="wrapper-lists">
+          {isActive ? (
+            <SearchedUL
+              searchedListItem={searchedListItem}
+              handleProductList={handleProductList}
+            />
+          ) : (
+            <ProductUL productsListItem={productsListItem} />
+          )}
+        </div>
       </div>
     </main>
   );

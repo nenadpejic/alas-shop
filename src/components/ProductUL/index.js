@@ -6,9 +6,12 @@ const ProductUL = ({ productsListItem }) => {
     <div className="productUL">
       <ul>
         {productsListItem.map((elem, index) => (
-          <li>{elem}</li>
+          <li key={index}>{elem}</li>
         ))}
       </ul>
+      <button className="productUL-button" type="button">
+        QR Code
+      </button>
     </div>
   );
 };
