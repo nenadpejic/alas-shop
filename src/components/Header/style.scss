@@ -55,6 +55,29 @@
                         }
                     }
                 }
+                & .user-email {
+                    color: $white;
+                    border-bottom: 1px solid $white;
+                }
+
+                & .signout {
+                    width: 100px;
+                    height: 40px;
+                    background: $white;
+                    color: $black;
+                    border-radius: 10px;
+                    border: none;
+                    outline: none;
+                    font-size: map-get($font-size, 'medium');
+
+                    &:hover {
+                        background: $orange;
+                        transition: all 0.5s;
+                        box-shadow: 0 0 10px 2px $orange;
+                        color: $white;
+                        font-weight: map-get($font-weight, 'medium');
+                    }
+                }
             }
         }
     }

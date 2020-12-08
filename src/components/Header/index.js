@@ -22,8 +22,8 @@ const Header = () => {
             </Link>
             <nav className="nav">
               <ul className="nav-list">
-                <li>{user.email}</li>
-                <li><button onClick={handleSignout}>Sign out</button></li>
+                <li className="user-email">{user.email}</li>
+                <li><button className="signout" onClick={handleSignout}>Sign out</button></li>
               </ul>
             </nav>
           </>
