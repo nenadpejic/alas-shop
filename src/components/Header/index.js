@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo2.png";
 import './style.scss';
-import {auth} from "../../services/fire";
+import { auth } from "../../services/fire";
 
 const Header = () => {
-  
+
   const handleSignout = () => {
     auth.signOut();
   };
