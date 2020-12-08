@@ -33,8 +33,8 @@ const Signin = () => {
   return (
     <main className="signin">
       <div className="wrapper">
-        <Link to="/">
-          <img src={logo} alt="logo" />
+        <Link to="/" className="logoLink">
+          <img src={logo} alt="logo" className="logo" />
         </Link>
         <h1>Sign in</h1>
         <form className="signin-form" onSubmit={handleSubmit}>

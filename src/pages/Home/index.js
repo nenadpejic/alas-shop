@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import SearchedList from "../../components/SearchedList";
 import "./style.scss";
 
 const Home = () => {
-  const [test, setTest] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [searchedItem, setSearchedItem] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const data = [
     { food: "jaja", id: 0 },
@@ -13,42 +16,51 @@ const Home = () => {
     { food: "zejtin", id: 5 },
   ];
 
-  //   let newData = [...data];
-  //   newData.map((elem) => {
-  //     console.log(elem.food);
-  //   });
-
   const handleChange = (e) => {
-    console.log(e.target.value);
+    setInputValue(e.target.value);
     let newData = [...data];
-    // newData.forEach((elem, index) => {
-    //   if (elem.food === e.target.value) {
-    //     console.log(elem);
-    //   }
-    // });
     newData = newData.filter((elem) => elem.food === e.target.value);
-    // newData.map((elem) => console.log(elem));
-    setTest([...newData]);
+    setSearchedItem(newData);
+  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setInputValue("");
+  // };
+
+  const createProductList = (param) => {
+    let arrOfProducts = [...products];
+    arrOfProducts.push(param);
+    setProducts(arrOfProducts);
   };
 
   return (
     <main className="home">
       <div className="wrapper">
         <h1>Home</h1>
-        <label>Search for food</label>
-        <br></br>
-        <input
-          type="search"
-          placeholder="Enter food name..."
-          onChange={handleChange}
-        />
+        <form className="wrapper-form">
+          <label>Search for food</label>
+          <br></br>
+          <input
+            type="search"
+            placeholder="Enter food name..."
+            onChange={handleChange}
+            value={inputValue}
+          />
+        </form>
       </div>
-      {console.log(test)}
-      <ul>
-        {test.map((elem) => (
-          <li>{elem.food}</li>
-        ))}
-      </ul>
+      <SearchedList
+        searchedItem={searchedItem}
+        createProductList={createProductList}
+      />
+      <div>
+        <ul>
+          {products.map((elem) => (
+            <li>{elem}</li>
+          ))}
+        </ul>
+      </div>
+      {/* <ProductList products={products}/> */}
     </main>
   );
 };
