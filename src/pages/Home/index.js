@@ -40,25 +40,22 @@ const Home = () => {
   return (
     <main className="home">
       <div className="wrapper">
-        <h1>Home</h1>
-        <label>Search for food</label>
-        <br></br>
-        <input
-          type="search"
-          placeholder="Enter food name..."
-          onChange={handleChange}
-          value={inputValue}
-        />
-        <div className="wrapper-lists">
-          {isActive ? (
-            <SearchedUL
-              searchedListItem={searchedListItem}
-              handleProductList={handleProductList}
-            />
-          ) : (
-            <ProductUL productsListItem={productsListItem} />
-          )}
+        <h1 className="home-title">Home</h1>
+
+        <div className="search-wrapper">
+          <label>Search for food</label>
+          <input
+            type="search"
+            placeholder="Enter food name..."
+            onChange={handleChange}
+            value={inputValue}
+          />
+          <SearchedUL
+            searchedListItem={searchedListItem}
+            handleProductList={handleProductList}
+          />
         </div>
+        <ProductUL productsListItem={productsListItem} />
       </div>
     </main>
   );

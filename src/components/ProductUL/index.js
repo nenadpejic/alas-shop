@@ -3,16 +3,22 @@ import "./style.scss";
 
 const ProductUL = ({ productsListItem }) => {
   return (
-    <div className="productUL">
-      <ul>
-        {productsListItem.map((elem, index) => (
-          <li key={index}>{elem}</li>
-        ))}
-      </ul>
-      <button className="productUL-button" type="button">
-        QR Code
-      </button>
-    </div>
+    <ul className="product-list">
+      {productsListItem.map((elem, index) => (
+        <li className="list-item">
+          <div className="product-wrapper">
+            <p className="product-name">{elem}</p>
+            <p className="suggested-amount">Suggested amount: 5</p>
+          </div>
+
+          <div className="btn-wrapper">
+            <button className="minus" type="button"></button>
+            <div className="amount">5</div>
+            <button className="plus" type="button"></button>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 

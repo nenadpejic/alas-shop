@@ -1,7 +1,44 @@
-.home {
-  margin-top: 100px;
-}
+@import '../../scss/variables';
+@import '../../scss/mixin';
 
+
+.home {
+  min-height: calc(100vh - 150px);
+
+  & .wrapper {
+
+    & .home-title {
+      text-align: center;
+      padding: 50px;
+      color: $white;
+    }
+
+    & .search-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+
+      & label {
+        color: $orange;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-size: map-get($font-size, 'medium');
+        font-weight: bold;
+        background: $dark-gray-alpha;
+        border-radius: 10px;
+      }
+
+      & input {
+          width: 200px;
+          margin-bottom: 5px;
+          padding: 5px 0 5px 10px;
+          border-radius: 5px;
+          border: 3px solid transparent;
+          font-family: $roboto-slab;
+
+<<<<<<< HEAD
 .home .wrapper-lists {
   width: 300px;
   height: 400px;
@@ -11,3 +48,16 @@
 .home input {
   padding: 10px;
 }
+=======
+          &:focus {
+              outline: none;
+              border: 3px solid $orange;
+          }
+          &:focus::placeholder {
+              color: transparent;
+          }
+      }
+    }
+  }
+}
+>>>>>>> a5e559454144e2bf5c65c9d383f749d5929f46b2
