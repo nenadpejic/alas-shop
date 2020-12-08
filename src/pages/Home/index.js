@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchedUL from "../../components/SearchedUL";
+import ProductUL from "../../components/ProductUL";
 import "./style.scss";
 
 const Home = () => {
@@ -45,14 +46,7 @@ const Home = () => {
           searchedListItem={searchedListItem}
           handleProductList={handleProductList}
         />
-        <div>
-          <ul>
-            {productsListItem.map((elem) => (
-              <li>{elem}</li>
-            ))}
-          </ul>
-        </div>
-        {/* <ProductUL products={products}/> */}
+        <ProductUL productsListItem={productsListItem} />
       </div>
     </main>
   );

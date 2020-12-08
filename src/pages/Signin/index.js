@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.scss';
-import logo from "../../assets/logo.png";
-import {auth} from "../../services/fire";
+import logo from "../../assets/logo2.png";
+import { auth } from "../../services/fire";
 
 const Signin = () => {
   const [email, setEmail] = useState("");

@@ -3,7 +3,7 @@ import "./style.scss";
 
 const SearchedUL = ({ searchedListItem, handleProductList }) => {
   return (
-    <div className="searched-list">
+    <div className="searchedUL">
       <ul>
         {searchedListItem.map((elem, index) => (
           <li onClick={() => handleProductList(elem.food)} key={index}>
