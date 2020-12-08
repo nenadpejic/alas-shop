@@ -1,102 +1,85 @@
-<<<<<<< HEAD
-.productUL ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  width: 200px;
-}
-
-.productUL li {
-  color: white;
-  border: 1px solid white;
-  padding: 10px;
-}
-=======
-@import '../../scss/variables';
-@import '../../scss/mixin';
+@import "../../scss/variables";
+@import "../../scss/mixin";
 
 .home {
+  & .wrapper {
+    & .product-list {
+      width: 300px;
+      margin: auto;
+      border-radius: 10px;
 
-    & .wrapper {
+      & .list-item {
+        width: 100%;
+        display: flex;
+        background: $dark-gray-alpha;
+        border: 2px solid $orange;
+        padding: 5px;
+        margin-bottom: 8px;
+        border-radius: 10px;
 
-        & .product-list {
-            width: 300px;
-            margin: auto;
-            border-radius: 10px;
+        & .product-wrapper {
+          width: 60%;
 
-            & .list-item {
-                width: 100%;
-                display: flex;
-                background: $dark-gray-alpha;
-                border: 2px solid $orange;
-                padding: 5px;
-                margin-bottom: 8px;
-                border-radius: 10px;
-
-                & .product-wrapper {
-                    width: 100%;
-
-                    & .product-name {
-                        color: $white;
-                        text-transform: uppercase;
-                        text-align: center;
-                        font-weight: map-get($font-weight, 'medium');
-                    }
-                    & .suggested-amount {
-                        color: $orange;
-                        font-style: italic;
-                        text-align: center;
-                        font-size: map-get($font-size, 'small-');
-                    }
-                }
-
-                & .btn-wrapper {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 40%;
-
-                    & .amount {
-                        padding: 10px;
-                        color: $white;
-                    }
-
-                    & button {
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 50%;
-                        border: none;
-                        outline: none;
-                        cursor: pointer;
-                        
-                        &.minus {
-                            border: 2px solid red;
-                            background: $white url('../../assets/img/minus.png');
-                            background-repeat: no-repeat;
-                            background-position: center;
-                        }
-                        &.plus {
-                            border: 2px solid green;
-                            background: $white url('../../assets/img/plus.png');
-                            background-repeat: no-repeat;
-                            background-position: center;
-                        }
-                    }
-                }
-            }
-            // & .list-item::before {
-            //     content: '';
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     width: 100%;
-            //     height: 100%;
-            //     background: #222;
-            //     border-radius: 10px;
-            //     opacity: 0.7;
-            //     z-index: 1;
-            // }
+          & .product-name {
+            color: $white;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: map-get($font-weight, "medium");
+          }
+          & .suggested-amount {
+            color: $orange;
+            font-style: italic;
+            text-align: center;
+            font-size: map-get($font-size, "small-");
+          }
         }
+
+        & .btn-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40%;
+
+          & .amount {
+            padding: 10px;
+            color: $white;
+          }
+
+          & button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &.minus {
+              border: 2px solid red;
+              background: $white url("../../assets/img/minus.png");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+            &.plus {
+              border: 2px solid green;
+              background: $white url("../../assets/img/plus.png");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+        }
+      }
+      // & .list-item::before {
+      //     content: '';
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     width: 100%;
+      //     height: 100%;
+      //     background: #222;
+      //     border-radius: 10px;
+      //     opacity: 0.7;
+      //     z-index: 1;
+      // }
     }
+  }
 }
->>>>>>> a5e559454144e2bf5c65c9d383f749d5929f46b2

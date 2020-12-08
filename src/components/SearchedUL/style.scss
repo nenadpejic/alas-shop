@@ -1,34 +1,22 @@
-<<<<<<< HEAD
-.searchedUL ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  border: 1px solid white;
-  width: 200px;
-}
-=======
-@import '../../scss/variables';
-@import '../../scss/mixin';
+@import "../../scss/variables";
+@import "../../scss/mixin";
 
 .home {
->>>>>>> a5e559454144e2bf5c65c9d383f749d5929f46b2
+  & .wrapper {
+    & .searched-list {
+      margin-bottom: 50px;
 
-    & .wrapper {
-        
-        & .searched-list {
-            margin-bottom: 50px;
-
-            & li {
-                list-style-type: none;
-                padding: 0 5px;
-                text-transform: uppercase;
-                cursor: pointer;
-                border-radius: 5px;
-                font-size: map-get($font-size, 'medium');
-                font-weight: map-get($font-weight, 'medium');
-                background: $orange;
-                color: $white;
-            }
-        }
+      & li {
+        list-style-type: none;
+        padding: 0 5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: map-get($font-size, "medium");
+        font-weight: map-get($font-weight, "medium");
+        background: $orange;
+        color: $white;
+      }
     }
+  }
 }

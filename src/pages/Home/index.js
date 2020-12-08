@@ -21,17 +21,15 @@ const Home = () => {
 
   const handleChange = (e) => {
     setIsActive(true);
-    console.log(isActive);
     setInputValue(e.target.value);
     let newFakeData = [...fakeData];
     newFakeData = newFakeData.filter((elem) => elem.food === e.target.value);
     setsearchedListItem(newFakeData);
   };
-  console.log(isActive);
 
   const handleProductList = (param) => {
     let products = [...productsListItem];
-    products.push(param);
+    products.unshift(param);
     setProductsListItem(products);
     setIsActive(false);
     setInputValue("");
@@ -50,12 +48,17 @@ const Home = () => {
             onChange={handleChange}
             value={inputValue}
           />
-          <SearchedUL
-            searchedListItem={searchedListItem}
-            handleProductList={handleProductList}
-          />
         </div>
-        <ProductUL productsListItem={productsListItem} />
+        <div className="damjan">
+          {isActive ? (
+            <SearchedUL
+              searchedListItem={searchedListItem}
+              handleProductList={handleProductList}
+            />
+          ) : (
+            <ProductUL productsListItem={productsListItem} />
+          )}
+        </div>
       </div>
     </main>
   );
