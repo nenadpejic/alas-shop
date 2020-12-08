@@ -48,19 +48,19 @@ const Home = () => {
             value={inputValue}
           />
         </form>
+        <SearchedList
+          searchedItem={searchedItem}
+          createProductList={createProductList}
+          />
+        <div>
+          <ul>
+            {products.map((elem) => (
+              <li>{elem}</li>
+              ))}
+          </ul>
+        </div>
+        {/* <ProductList products={products}/> */}
       </div>
-      <SearchedList
-        searchedItem={searchedItem}
-        createProductList={createProductList}
-      />
-      <div>
-        <ul>
-          {products.map((elem) => (
-            <li>{elem}</li>
-          ))}
-        </ul>
-      </div>
-      {/* <ProductList products={products}/> */}
     </main>
   );
 };

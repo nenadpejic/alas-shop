@@ -21,7 +21,7 @@ const ProtectedRoute = ({children, access, ...rest}) => {
         {user
         ? <>
           <Header />
-          children
+          {children}
           <Footer />
         </>
         : <Redirect to="/"/>}
