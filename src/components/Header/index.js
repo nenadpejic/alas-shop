@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo2.png";
 import './style.scss';
+<<<<<<< HEAD
+import { auth } from "../../services/fire";
+
+const Header = () => {
+=======
 import {auth} from "../../services/fire";
 import {UserContext} from "../../contexts/UserContext";
 
 const Header = () => {
   const user = useContext(UserContext);
+>>>>>>> 53402545abb484d166d535bc2ffd557a8946f8fb
 
   const handleSignout = () => {
     auth.signOut();

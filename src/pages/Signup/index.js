@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.scss';
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo2.png";
 import { auth } from "../../services/fire";
 
 const Signup = () => {
@@ -36,9 +36,9 @@ const Signup = () => {
             setErrMsg("Password must be at least 6 characters long.")
           };
         });
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
     };
   }
 
