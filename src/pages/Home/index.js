@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <main className="home">
       <div className="wrapper">
-        <h1>Home</h1>
+        <h1 className="homeTitle">Home</h1>
         <form className="wrapper-form">
           <label>Search for food</label>
           <br></br>

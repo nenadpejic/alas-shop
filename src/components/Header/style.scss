@@ -12,42 +12,47 @@
             margin: 10px;
 
             & .logo {
-                width: 100px;
-                // background: $white;
-                // border-radius: 50%;
-                padding: 10px;
+                width: 80px;
             }
         }
 
-        & nav ul {
-            padding: 5px 10px;
-            margin-right: 10px;
+        & .nav {
+            margin: 10px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
 
-            & li {
-                list-style-type: none;
-                margin: 10px;
+            & .nav-list {
+                padding: 5px 10px;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-                & a {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100px;
-                    height: 40px;
-                    text-decoration: none;
-                    background: $white;
-                    color: $black;
-                    border-radius: 10px;
-                    font-size: map-get($font-size, 'medium');
+                & li {
+                    list-style-type: none;
+                    margin: 10px;
 
-                    &:hover {
-                        background: $orange;
-                        transition: all 0.5s;
-                        box-shadow: 0 0 10px 2px $orange;
-                        color: $white;
-                        font-weight: map-get($font-weight, 'heavy');
+                    & a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100px;
+                        height: 40px;
+                        text-decoration: none;
+                        background: $white;
+                        color: $black;
+                        border-radius: 10px;
+                        font-size: map-get($font-size, 'medium');
+
+                        &:hover {
+                            background: $orange;
+                            transition: all 0.5s;
+                            box-shadow: 0 0 10px 2px $orange;
+                            color: $white;
+                            font-weight: map-get($font-weight, 'heavy');
+                        }
                     }
                 }
             }
