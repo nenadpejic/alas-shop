@@ -1,0 +1,24 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
+.home {
+
+    & .wrapper {
+        
+        & .searched-list {
+            margin-bottom: 50px;
+
+            & li {
+                list-style-type: none;
+                padding: 0 5px;
+                text-transform: uppercase;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: map-get($font-size, 'medium');
+                font-weight: map-get($font-weight, 'medium');
+                background: $orange;
+                color: $white;
+            }
+        }
+    }
+}
