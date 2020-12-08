@@ -1,6 +1,4 @@
-// import {auth, firestore} from "./services/fire";
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
@@ -8,55 +6,36 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Home from "./pages/Home";
 import "./App.scss";
-import { auth } from "./services/fire";
+import UserContextProvider from "./contexts/UserContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => {
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    console.log("useEffect in App triggered!");
-    auth.onAuthStateChanged(user => {
-      setUser(user);
-      console.log(user);
-    });
-  }, [])
-
   return (
-    <div className="app">
+    <UserContextProvider>
       <Router>
-        <Route exact path="/">
+        <ProtectedRoute exact path="/" access="public">
           <Header />
           <Landing />
           <Footer />
-        </Route>
+        </ProtectedRoute>
 
-        <Route path="/signup">
-          {user
-          ? <Redirect to="/home" />
-          : <Signup />}
-        </Route>
+        <ProtectedRoute path="/signup" access="public">
+          <Signup />
+        </ProtectedRoute>
 
-        <Route path="/signin">
-          {user
-          ? <Redirect to="/home" />
-          : <Signin />}
-        </Route>
+        <ProtectedRoute path="/signin" access="public">
+          <Signin />
+        </ProtectedRoute>
 
-        <Route path="/home">
-          <Header />
-          {user
-          ? <Home />
-          : <Redirect to="/" />}
-          <Footer />
-        </Route>
+        <ProtectedRoute path="/home" access="private">
+          <Home />
+        </ProtectedRoute>
 
-        <Route path="/history">
-          <Header />
+        <ProtectedRoute path="/history" access="private">
           {/* <History /> */}
-          <Footer />
-        </Route>
+        </ProtectedRoute>
       </Router>
-    </div>
+    </UserContextProvider>
   );
 };
 
