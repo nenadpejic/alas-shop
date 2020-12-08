@@ -37,10 +37,9 @@ const Home = () => {
   return (
     <main className="home">
       <div className="wrapper">
-        <h1 className="homeTitle">Home</h1>
-        <form className="wrapper-form">
+        <h1 className="home-title">Make a shoping list!</h1>
+        <form className="search-form">
           <label>Search for food</label>
-          <br></br>
           <input
             type="search"
             placeholder="Enter food name..."
@@ -51,16 +50,14 @@ const Home = () => {
         <SearchedList
           searchedItem={searchedItem}
           createProductList={createProductList}
-          />
-        <div>
-          <ul>
-            {products.map((elem) => (
-              <li>{elem}</li>
-              ))}
-          </ul>
-        </div>
-        {/* <ProductList products={products}/> */}
+        />
+        <ul>
+          {products.map((elem) => (
+            <li>{elem}</li>
+          ))}
+        </ul>
       </div>
+      {/* <ProductList products={products}/> */}
     </main>
   );
 };
