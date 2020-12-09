@@ -24,7 +24,7 @@ const Home = () => {
     setInputValue(e.target.value);
     let newFakeData = [...fakeData];
     newFakeData = newFakeData.filter((elem) =>
-      elem.food.toLocaleLowerCase().includes(e.target.value)
+      elem.food.toLowerCase().includes(e.target.value)
     );
     setsearchedListItem(newFakeData);
   };
@@ -70,11 +70,11 @@ const Home = () => {
               handleProductList={handleProductList}
             />
           ) : (
-            <ProductUL
-              productsListItem={productsListItem}
-              removeItem={removeItem}
-            />
-          )}
+              <ProductUL
+                productsListItem={productsListItem}
+                removeItem={removeItem}
+              />
+            )}
         </div>
       </div>
     </main>
