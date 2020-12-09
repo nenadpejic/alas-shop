@@ -17,6 +17,19 @@
         margin-bottom: 8px;
         border-radius: 10px;
 
+        & .delete-item {
+          width: 25px;
+          height: 25px;
+          margin-top: 50%;
+          background: url('../../assets/img/trashbin.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 80%;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+
         & .product-wrapper {
           width: 60%;
 

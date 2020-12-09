@@ -14,9 +14,7 @@ const ProductLI = ({ elem, index, removeItem }) => {
   return (
     <li className="list-item">
       <div>
-        <button type="button" onClick={() => removeItem(index)}>
-          X
-        </button>
+        <button className="delete-item" type="button" onClick={() => removeItem(index)}></button>
       </div>
       <div className="product-wrapper">
         <p className="product-name">{elem}</p>
