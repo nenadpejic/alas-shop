@@ -58,6 +58,13 @@
                 & .user-email {
                     color: $white;
                     border-bottom: 1px solid $white;
+                    transition: 0.5s all ease;
+
+                    &:hover {
+                        color: $orange;
+                        border-bottom: 1px solid $orange;
+                        cursor: pointer;
+                    }
                 }
 
                 & .signout {
@@ -69,6 +76,7 @@
                     border: none;
                     outline: none;
                     font-size: map-get($font-size, 'medium');
+                    cursor: pointer;
 
                     &:hover {
                         background: $orange;

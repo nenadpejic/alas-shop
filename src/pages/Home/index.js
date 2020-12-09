@@ -11,28 +11,42 @@ const Home = () => {
 
   //Fake Data
   const fakeData = [
-    { food: "jaja", id: 0 },
-    { food: "mleko", id: 1 },
-    { food: "meso", id: 2 },
-    { food: "jabuke", id: 3 },
-    { food: "hleb", id: 4 },
-    { food: "zejtin", id: 5 },
+    { food: "Jaja", id: 0 },
+    { food: "Mleko", id: 1 },
+    { food: "Meso", id: 2 },
+    { food: "Jabuke", id: 3 },
+    { food: "Hleb", id: 4 },
+    { food: "Zejtin", id: 5 },
   ];
 
   const handleChange = (e) => {
     setIsActive(true);
     setInputValue(e.target.value);
     let newFakeData = [...fakeData];
-    newFakeData = newFakeData.filter((elem) => elem.food === e.target.value);
+    newFakeData = newFakeData.filter((elem) =>
+      elem.food.toLowerCase().includes(e.target.value)
+    );
     setsearchedListItem(newFakeData);
   };
 
+  //add item from searched list to products list
   const handleProductList = (param) => {
     let products = [...productsListItem];
     products.unshift(param);
     setProductsListItem(products);
     setIsActive(false);
     setInputValue("");
+  };
+
+  //removing item from products List
+  const removeItem = (i) => {
+    let products = [...productsListItem];
+    products.forEach((elem, index) => {
+      if (index === i) {
+        products.splice(index, 1);
+      }
+    });
+    setProductsListItem(products);
   };
 
   return (
@@ -56,7 +70,14 @@ const Home = () => {
               handleProductList={handleProductList}
             />
           ) : (
+<<<<<<< HEAD
               <ProductUL productsListItem={productsListItem} />
+=======
+              <ProductUL
+                productsListItem={productsListItem}
+                removeItem={removeItem}
+              />
+>>>>>>> fefae6860b9301bef7c83afb93bcdf3a62024752
             )}
         </div>
       </div>
