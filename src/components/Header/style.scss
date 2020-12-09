@@ -69,6 +69,7 @@
                     border: none;
                     outline: none;
                     font-size: map-get($font-size, 'medium');
+                    cursor: pointer;
 
                     &:hover {
                         background: $orange;
