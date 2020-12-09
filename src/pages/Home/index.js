@@ -56,8 +56,8 @@ const Home = () => {
               handleProductList={handleProductList}
             />
           ) : (
-            <ProductUL productsListItem={productsListItem} />
-          )}
+              <ProductUL productsListItem={productsListItem} />
+            )}
         </div>
       </div>
     </main>

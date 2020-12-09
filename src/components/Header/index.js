@@ -6,7 +6,9 @@ import { auth } from "../../services/fire";
 import { UserContext } from "../../contexts/UserContext";
 
 const Header = () => {
-  const user = useContext(UserContext);
+  const userContext = useContext(UserContext);
+  const { user } = userContext;
+  const { username } = userContext;
 
   const handleSignout = () => {
     auth.signOut();
@@ -22,7 +24,7 @@ const Header = () => {
             </Link>
             <nav className="nav">
               <ul className="nav-list">
-                <li className="user-email">{user.email}</li>
+                <li className="user-email">{username}</li>
                 <li><button className="signout" onClick={handleSignout}>Sign out</button></li>
               </ul>
             </nav>
