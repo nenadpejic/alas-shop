@@ -10,7 +10,11 @@ const UserContextProvider = ({children}) => {
     console.log("useEffect in UserContextProvider triggered!");
     auth.onAuthStateChanged(user => {
       setUser(user);
-      console.log(user);
+      if (user) {
+        console.log(`User sign in: `, user);
+      } else {
+        console.log(`User sign out: `, user);
+      }
     });
   }, []);
   

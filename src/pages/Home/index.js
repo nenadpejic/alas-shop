@@ -7,26 +7,45 @@ const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [searchedListItem, setsearchedListItem] = useState([]);
   const [productsListItem, setProductsListItem] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
+  //Fake Data
   const fakeData = [
-    { food: "jaja", id: 0 },
-    { food: "mleko", id: 1 },
-    { food: "meso", id: 2 },
-    { food: "jabuke", id: 3 },
-    { food: "hleb", id: 4 },
-    { food: "zejtin", id: 5 },
+    { food: "Jaja", id: 0 },
+    { food: "Mleko", id: 1 },
+    { food: "Meso", id: 2 },
+    { food: "Jabuke", id: 3 },
+    { food: "Hleb", id: 4 },
+    { food: "Zejtin", id: 5 },
   ];
 
   const handleChange = (e) => {
+    setIsActive(true);
     setInputValue(e.target.value);
     let newFakeData = [...fakeData];
-    newFakeData = newFakeData.filter((elem) => elem.food === e.target.value);
+    newFakeData = newFakeData.filter((elem) =>
+      elem.food.toLocaleLowerCase().includes(e.target.value)
+    );
     setsearchedListItem(newFakeData);
   };
 
+  //add item from searched list to products list
   const handleProductList = (param) => {
     let products = [...productsListItem];
-    products.push(param);
+    products.unshift(param);
+    setProductsListItem(products);
+    setIsActive(false);
+    setInputValue("");
+  };
+
+  //removing item from products List
+  const removeItem = (i) => {
+    let products = [...productsListItem];
+    products.forEach((elem, index) => {
+      if (index === i) {
+        products.splice(index, 1);
+      }
+    });
     setProductsListItem(products);
   };
 
@@ -43,15 +62,21 @@ const Home = () => {
             onChange={handleChange}
             value={inputValue}
           />
-          <SearchedUL
-            searchedListItem={searchedListItem}
-            handleProductList={handleProductList}
-          />
         </div>
-        <ProductUL productsListItem={productsListItem} />
-
+        <div className="damjan">
+          {isActive ? (
+            <SearchedUL
+              searchedListItem={searchedListItem}
+              handleProductList={handleProductList}
+            />
+          ) : (
+            <ProductUL
+              productsListItem={productsListItem}
+              removeItem={removeItem}
+            />
+          )}
+        </div>
       </div>
-      {/* <ProductList products={products}/> */}
     </main>
   );
 };

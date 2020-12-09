@@ -1,27 +1,19 @@
 import React from "react";
+import ProductLI from "./ProductLI";
 import "./style.scss";
 
-const ProductUL = ({ productsListItem }) => {
+const ProductUL = ({ productsListItem, removeItem }) => {
   return (
     <ul className="product-list">
       {productsListItem.map((elem, index) => (
-        <li className="list-item">
-
-          <div className="product-wrapper">
-            <p className="product-name">{elem}</p>
-            <p className="suggested-amount">Suggested amount: 5</p>
-          </div>
-
-          <div className="btn-wrapper">
-            <button className="minus" type="button"></button>
-            <div className="amount">5</div>
-            <button className="plus" type="button"></button>
-          </div>
-
-        </li>
+        <ProductLI
+          removeItem={removeItem}
+          key={index}
+          index={index}
+          elem={elem}
+        />
       ))}
     </ul>
   );
 };
-
 export default ProductUL;

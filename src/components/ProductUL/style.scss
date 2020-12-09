@@ -1,75 +1,73 @@
-@import '../../scss/variables';
-@import '../../scss/mixin';
+@import "../../scss/variables";
+@import "../../scss/mixin";
 
 .home {
+  & .wrapper {
+    & .product-list {
+      width: 300px;
+      margin: auto;
+      border-radius: 10px;
 
-    & .wrapper {
+      & .list-item {
+        width: 100%;
+        display: flex;
+        background: $dark-gray-alpha;
+        border: 2px solid $orange;
+        padding: 5px;
+        margin-bottom: 8px;
+        border-radius: 10px;
 
-        & .product-list {
-            width: 300px;
-            margin: auto;
-            border-radius: 10px;
+        & .product-wrapper {
+          width: 60%;
 
-            & .list-item {
-                width: 100%;
-                display: flex;
-                background: $dark-gray-alpha;
-                border: 2px solid $orange;
-                padding: 5px;
-                margin-bottom: 8px;
-                border-radius: 10px;
-
-                & .product-wrapper {
-                    width: 100%;
-
-                    & .product-name {
-                        color: $white;
-                        text-transform: uppercase;
-                        text-align: center;
-                        font-weight: map-get($font-weight, 'medium');
-                    }
-                    & .suggested-amount {
-                        color: $orange;
-                        font-style: italic;
-                        text-align: center;
-                        font-size: map-get($font-size, 'small-');
-                    }
-                }
-
-                & .btn-wrapper {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 40%;
-
-                    & .amount {
-                        padding: 10px;
-                        color: $white;
-                    }
-
-                    & button {
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 50%;
-                        border: none;
-                        outline: none;
-                        cursor: pointer;
-                        
-                        &.minus {
-                            border: 2px solid red;
-                            background: $white url('../../assets/img/minus.png');
-                            background-repeat: no-repeat;
-                            background-position: center;
-                        }
-                        &.plus {
-                            border: 2px solid green;
-                            background: $white url('../../assets/img/plus.png');
-                            background-repeat: no-repeat;
-                            background-position: center;
-                        }
-                    }
-                }
-            }
+          & .product-name {
+            color: $white;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: map-get($font-weight, "medium");
+          }
+          & .suggested-amount {
+            color: $orange;
+            font-style: italic;
+            text-align: center;
+            font-size: map-get($font-size, "small-");
+          }
         }
+
+        & .btn-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40%;
+
+          & .amount {
+            padding: 10px;
+            color: $white;
+          }
+
+          & button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &.minus {
+              border: 2px solid red;
+              background: $white url("../../assets/img/minus.png");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+            &.plus {
+              border: 2px solid green;
+              background: $white url("../../assets/img/plus.png");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+        }
+      }
     }
+  }
 }
