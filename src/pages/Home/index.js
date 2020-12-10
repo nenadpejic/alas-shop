@@ -11,28 +11,28 @@ const Home = () => {
 
   //Fake Data
   const fakeData = [
-    { food: "Jaja", id: 0 },
-    { food: "Mleko", id: 1 },
-    { food: "Meso", id: 2 },
-    { food: "Jabuke", id: 3 },
-    { food: "Hleb", id: 4 },
-    { food: "Zejtin", id: 5 },
+    { name: "Jaja", quantity: 0 },
+    { name: "Mleko", quantity: 0 },
+    { name: "Meso", quantity: 0 },
+    { name: "Jabuke", quantity: 0 },
+    { name: "Hleb", quantity: 0 },
+    { name: "Zejtin", quantity: 0 },
   ];
 
   const handleChange = (e) => {
-    setIsActive(true);
     setInputValue(e.target.value);
+    setIsActive(true);
     let newFakeData = [...fakeData];
     newFakeData = newFakeData.filter((elem) =>
-      elem.food.toLocaleLowerCase().includes(e.target.value)
+      elem.name.toLowerCase().includes(e.target.value)
     );
     setsearchedListItem(newFakeData);
   };
 
   //add item from searched list to products list
-  const handleProductList = (param) => {
+  const handleProductList = (product) => {
     let products = [...productsListItem];
-    products.unshift(param);
+    products.unshift(product);
     setProductsListItem(products);
     setIsActive(false);
     setInputValue("");
@@ -47,6 +47,7 @@ const Home = () => {
       }
     });
     setProductsListItem(products);
+    console.log(productsListItem);
   };
 
   return (
@@ -57,7 +58,7 @@ const Home = () => {
         <div className="search-wrapper">
           <label>Search for food</label>
           <input
-            type="search"
+            type="text"
             placeholder="Enter food name..."
             onChange={handleChange}
             value={inputValue}
@@ -73,6 +74,7 @@ const Home = () => {
             <ProductUL
               productsListItem={productsListItem}
               removeItem={removeItem}
+              fakeData={fakeData}
             />
           )}
         </div>

@@ -1,16 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const ProductLI = ({ elem, index, removeItem }) => {
-  const [quantity, setQuantity] = useState(0);
-
-  const handleQuantity = (param) => {
-    if (param === "-") {
-      setQuantity(quantity - 1);
-    } else if (param === "+") {
-      setQuantity(quantity + 1);
-    }
-  };
-
+const ProductLI = ({ elem, index, removeItem, handleQuantity }) => {
   return (
     <li className="list-item">
       <div>
@@ -19,21 +9,21 @@ const ProductLI = ({ elem, index, removeItem }) => {
         </button>
       </div>
       <div className="product-wrapper">
-        <p className="product-name">{elem}</p>
+        <p className="product-name">{elem.name}</p>
         <p className="suggested-amount">Suggested amount: 5</p>
       </div>
 
       <div className="btn-wrapper">
         <button
-          onClick={() => handleQuantity("-")}
           className="minus"
           type="button"
+          onClick={() => handleQuantity(elem, "-")}
         ></button>
-        <div className="amount">{quantity}</div>
+        <div className="amount">{elem.quantity}</div>
         <button
-          onClick={() => handleQuantity("+")}
           className="plus"
           type="button"
+          onClick={() => handleQuantity(elem, "+")}
         ></button>
       </div>
     </li>
