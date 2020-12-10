@@ -70,14 +70,10 @@ const Home = () => {
               handleProductList={handleProductList}
             />
           ) : (
-<<<<<<< HEAD
-              <ProductUL productsListItem={productsListItem} />
-=======
               <ProductUL
                 productsListItem={productsListItem}
                 removeItem={removeItem}
               />
->>>>>>> fefae6860b9301bef7c83afb93bcdf3a62024752
             )}
         </div>
       </div>

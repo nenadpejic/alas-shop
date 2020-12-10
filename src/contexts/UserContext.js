@@ -20,6 +20,12 @@ const UserContextProvider = ({ children }) => {
       setUser(user);
       setIsLoading(false);
       if (user) {
+        // get custom claims and attach it to user
+        // user.getIdTokenResult()
+        //   .then(idTokenResult => {
+        //     user.admin = idTokenResult.claims.admin;
+        //   })
+
         console.log(`User sign in: `, user);
         firestore.collection("users").doc(user.uid).get()
           .then(doc => {
