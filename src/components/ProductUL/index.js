@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProductLI from "./ProductLI";
 import "./style.scss";
 
-const ProductUL = ({ productsListItem, removeItem, fakeData }) => {
+const ProductUL = ({ productsListItem, removeItem }) => {
   const [products, setProducts] = useState([...productsListItem]);
 
   const handleQuantity = (product, operation) => {

@@ -45,7 +45,7 @@ const Signin = () => {
           <input id="signin-form-password" type="password" placeholder="Enter password.."
             onChange={(e) => setPassword(e.target.value)} value={password} />
           <button className="submitBtn" type="submit">Sign in</button>
-          <p>{errMsg}</p>
+          <p className="error-msg">{errMsg}</p>
         </form>
         <p className="existingAcc">Need an account? <Link to="/signup">Sign up</Link></p>
       </div>

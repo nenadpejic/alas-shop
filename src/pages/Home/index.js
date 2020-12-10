@@ -47,7 +47,6 @@ const Home = () => {
       }
     });
     setProductsListItem(products);
-    console.log(productsListItem);
   };
 
   return (
@@ -74,7 +73,6 @@ const Home = () => {
             <ProductUL
               productsListItem={productsListItem}
               removeItem={removeItem}
-              fakeData={fakeData}
             />
           )}
         </div>

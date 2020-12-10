@@ -13,13 +13,13 @@
         & .logoLink {
 
             & .logo {
-                width: 120px;
+                width: 100px;
             }
         }
 
         & h1 {
             color: $white;
-            font-size: 60px;
+            font-size: 50px;
             padding: 0 0 20px 0;
         }
 
@@ -69,10 +69,15 @@
                 color: white;
                 cursor: pointer;
                 transition: 0.5s all;
+                margin-bottom: 15px;
 
                 &:hover {
                     box-shadow: 0 0 10px 2px $orange;
                 }
+            }
+            
+            & .error-msg {
+                color: $red;
             }
         }
 
@@ -80,6 +85,7 @@
             color: $white;
             background: $dark-gray-alpha;
             padding: 5px;
+            margin-bottom: 200px;
             border-radius: 10px;
 
             & a {
