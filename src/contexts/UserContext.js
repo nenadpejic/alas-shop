@@ -15,7 +15,6 @@ const UserContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    console.log("useEffect in UserContextProvider triggered!");
     auth.onAuthStateChanged(user => {
       setUser(user);
       setIsLoading(false);
@@ -26,7 +25,7 @@ const UserContextProvider = ({ children }) => {
         //     user.admin = idTokenResult.claims.admin;
         //   })
 
-        console.log(`User sign in: `, user);
+        console.log(`User sign in: `, user.email);
         firestore.collection("users").doc(user.uid).get()
           .then(doc => {
             const data = doc.data();

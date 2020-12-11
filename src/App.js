@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Home from "./pages/Home";
-import Admin from "./pages/Admin";
+// import Admin from "./pages/Admin";
 import "./App.scss";
 import UserContextProvider from "./contexts/UserContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
