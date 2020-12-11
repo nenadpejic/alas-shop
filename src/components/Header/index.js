@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo2.png";
 import './style.scss';
-import { auth } from "../../services/fire";
 import { UserContext } from "../../contexts/UserContext";
+import Menu from "./Menu";
 
 const Header = () => {
+  const [menu, setMenu] = useState(false);
   const userContext = useContext(UserContext);
   const { user } = userContext;
   const { username } = userContext;
 
-  const handleSignout = () => {
-    auth.signOut();
-  };
+  useEffect(() => {
+    console.log(menu);
+  }, [menu]);
 
   return (
     <header className="header">
@@ -24,8 +25,10 @@ const Header = () => {
             </Link>
             <nav className="nav">
               <ul className="nav-list">
-                <li className="user-email">{username}</li>
-                <li><button className="signout" onClick={handleSignout}>Sign out</button></li>
+                <li className="user-email">
+                  <span onClick={() => setMenu(!menu)}>{username}</span>
+                  {menu && <Menu setMenu={setMenu} />}
+                </li>
               </ul>
             </nav>
           </>
