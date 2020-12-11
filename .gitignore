@@ -26,4 +26,3 @@ yarn-error.log*
 /functions
 .firebaserc
 firebase.json
-/src/pages/Admin

@@ -11,7 +11,7 @@
   }
 
   & li:nth-of-type(2) {
-    & p:last-child{
+    & p:nth-of-type(3){
       color: red;
     }
   }

@@ -26,6 +26,6 @@ export const createProduct = (data) => {
   return firestore.collection('products').doc().set(data)
 };
 
-export const getProduct = () => {
+export const getProducts = () => {
   return firestore.collection('products').get()
 };

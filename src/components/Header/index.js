@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo2.png";
 import './style.scss';
@@ -10,10 +10,6 @@ const Header = () => {
   const userContext = useContext(UserContext);
   const { user } = userContext;
   const { username } = userContext;
-
-  useEffect(() => {
-    console.log(menu);
-  }, [menu]);
 
   return (
     <header className="header">

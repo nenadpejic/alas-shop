@@ -1,0 +1,29 @@
+#admin {
+  text-align: center;
+  color: #fff;
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & label {
+      margin-top: 1rem;
+    }
+
+    & input {
+      margin-top: 1rem;
+      padding: 0.5rem;
+    }
+    
+    & button {
+      &:hover {
+        cursor: pointer;
+      }
+      margin-top: 1rem;
+      padding: 0.5rem;
+      border: none;
+    }
+  }
+}
