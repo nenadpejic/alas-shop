@@ -16,7 +16,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         ? <Loader className='loader' />
         : user
           ? <>
-            < Header id='test' />
+            < Header />
             { children}
             < Footer />
           </>
