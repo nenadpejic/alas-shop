@@ -15,27 +15,27 @@ const UserContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    console.log("useEffect in UserContextProvider triggered!");
     auth.onAuthStateChanged(user => {
       setUser(user);
-      setIsLoading(false);
       if (user) {
         // get custom claims and attach it to user
-        // user.getIdTokenResult()
-        //   .then(idTokenResult => {
-        //     user.admin = idTokenResult.claims.admin;
-        //   })
-
-        console.log(`User sign in: `, user);
-        firestore.collection("users").doc(user.uid).get()
+        user.getIdTokenResult()
+          .then(idTokenResult => {
+            user.admin = idTokenResult.claims.admin;
+            // get the username
+            return firestore.collection("users").doc(user.uid).get()
+          })
           .then(doc => {
             const data = doc.data();
             setUsername(data.username);
+            setIsLoading(false);
+            console.log(`User sign in: `, user.email);
           })
           .catch(err => {
             console.log(err);
           })
       } else {
+        setIsLoading(false);
         console.log(`User sign out: `, user);
       }
     })

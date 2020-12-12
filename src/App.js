@@ -8,37 +8,44 @@ import Home from "./pages/Home";
 // import Admin from "./pages/Admin";
 import "./App.scss";
 import UserContextProvider from "./contexts/UserContext";
-import ProtectedRoute from "./routes/ProtectedRoute";
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
+import AdminRoute from "./routes/AdminRoute";
+import PageNotFound from './pages/PageNotFound';
 
 const App = () => {
   return (
     <UserContextProvider>
       <Router>
-        <ProtectedRoute exact path="/" access="public">
+        <PublicRoute exact path="/">
           <Header />
           <Landing />
           <Footer />
-        </ProtectedRoute>
+        </PublicRoute>
 
-        <ProtectedRoute path="/signup" access="public">
+        <PublicRoute path="/signup">
           <Signup />
-        </ProtectedRoute>
+        </PublicRoute>
 
-        <ProtectedRoute path="/signin" access="public">
+        <PublicRoute path="/signin">
           <Signin />
-        </ProtectedRoute>
+        </PublicRoute>
 
-        <ProtectedRoute path="/home" access="private">
+        <PrivateRoute path="/home">
           <Home />
-        </ProtectedRoute>
+        </PrivateRoute>
 
-        <ProtectedRoute path="/history" access="private">
+        <PrivateRoute path="/history">
           {/* <History /> */}
-        </ProtectedRoute>
+        </PrivateRoute>
 
-        {/* <ProtectedRoute path="/admin" access="private">
+        <AdminRoute path="/admin">
           <Admin />
-        </ProtectedRoute> */}
+        </AdminRoute>
+
+        <Route path='*'>
+          <PageNotFound />
+        </Route>
       </Router>
     </UserContextProvider>
   );

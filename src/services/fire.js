@@ -12,9 +12,8 @@ var firebaseConfig = {
   appId: "1:195554176702:web:1db3780ac181a80b7778ef"
 };
 
-const fire = firebase.initializeApp(firebaseConfig);
-export const auth = fire.auth();
-export const firestore = fire.firestore();
-export const functions = fire.functions();
+firebase.initializeApp(firebaseConfig);
 
-export default fire;
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+export const functions = firebase.functions();
