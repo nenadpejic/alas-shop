@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
@@ -8,38 +8,44 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import "./App.scss";
 import UserContextProvider from "./contexts/UserContext";
-import ProtectedRoute from "./routes/ProtectedRoute";
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 import AdminRoute from "./routes/AdminRoute";
+import PageNotFound from './pages/PageNotFound';
 
 const App = () => {
   return (
     <UserContextProvider>
       <Router>
-        <ProtectedRoute exact path="/" access="public">
+        <PublicRoute exact path="/">
           <Header />
           <Landing />
           <Footer />
-        </ProtectedRoute>
+        </PublicRoute>
 
-        <ProtectedRoute path="/signup" access="public">
+        <PublicRoute path="/signup">
           <Signup />
-        </ProtectedRoute>
+        </PublicRoute>
 
-        <ProtectedRoute path="/signin" access="public">
+        <PublicRoute path="/signin">
           <Signin />
-        </ProtectedRoute>
+        </PublicRoute>
 
-        <ProtectedRoute path="/home" access="private">
+        <PrivateRoute path="/home">
           <Home />
-        </ProtectedRoute>
+        </PrivateRoute>
 
-        <ProtectedRoute path="/history" access="private">
+        <PrivateRoute path="/history">
           {/* <History /> */}
-        </ProtectedRoute>
+        </PrivateRoute>
 
         <AdminRoute path="/admin">
           <Admin />
         </AdminRoute>
+
+        <Route path='*'>
+          <PageNotFound />
+        </Route>
       </Router>
     </UserContextProvider>
   );
