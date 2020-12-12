@@ -5,18 +5,13 @@
   min-height: calc(100vh - 150px);
 
   & .wrapper {
-    & .home-title {
-      text-align: center;
-      padding: 50px;
-      color: $white;
-    }
-
     & .search-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 120px;
+      margin-top: 20px;
 
       & label {
         color: $orange;
@@ -45,11 +40,22 @@
         }
       }
     }
-    & .damjan {
+    & .lists-wrapper {
       border: 1px solid yellow;
-      width: 300px;
+      width: 320px;
       height: 400px;
       margin: auto;
+      overflow-y: scroll;
+    }
+
+    & .button-wrapper {
+      width: 100px;
+      margin: 15px auto;
+    }
+
+    & .button-wrapper button {
+      padding: 15px;
+      font-size: 1.1em;
     }
   }
 }

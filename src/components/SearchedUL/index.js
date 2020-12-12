@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.scss";
 
-const SearchedUL = ({ searchedListItem, handleProductList }) => {
-  useEffect(() => {
-    console.log(searchedListItem);
-  }, [searchedListItem]);
-
+const SearchedUL = ({ filterProducts, handleProducts }) => {
   return (
     <ul className="searched-list">
-      {searchedListItem.map((elem, index) => (
-        <li onClick={() => handleProductList(elem)} key={index}>
+      {filterProducts.map((elem, index) => (
+        <li
+          className="searched-item"
+          onClick={() => handleProducts(elem)}
+          key={index}
+        >
           {elem.name}
         </li>
       ))}
