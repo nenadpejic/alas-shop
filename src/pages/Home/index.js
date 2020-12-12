@@ -147,7 +147,7 @@ const Home = () => {
           )}
         </div>
         <div className="button-wrapper">
-          {products.length > 0 && <button>Done</button>}
+          {products.length > 0 && <button className="checkout-btn">Done</button>}
         </div>
       </div>
     </main>

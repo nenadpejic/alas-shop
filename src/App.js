@@ -39,9 +39,9 @@ const App = () => {
           {/* <History /> */}
         </PrivateRoute>
 
-        <AdminRoute path="/admin">
+        {/* <AdminRoute path="/admin">
           <Admin />
-        </AdminRoute>
+        </AdminRoute> */}
 
         <Route path='*'>
           <PageNotFound />

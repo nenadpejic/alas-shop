@@ -14,17 +14,15 @@ const Menu = ({ setMenu }) => {
   }
 
   return (
-    <ul id='menu'>
-      <li><span>Account</span> <span onClick={() => { setMenu(false) }}>X</span></li>
-      <hr />
+    <ul className='drop-down-menu'>
+      <li className="exit-drop-down"><span onClick={() => { setMenu(false) }}>X</span> <span>Account</span></li>
       <li>
-        <p>{username}</p>
-        <p>{user.email}</p>
-        {user.admin && <p>Admin</p>}
+        {username}
       </li>
-      <hr />
+      <li>
+        {user.email}
+      </li>
       {user.admin && <li><Link to="/admin">Admin</Link></li>}
-      <hr />
       <li onClick={handleSignOut}>Sign out</li>
     </ul>
   );
