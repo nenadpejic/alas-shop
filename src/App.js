@@ -10,8 +10,8 @@ import "./App.scss";
 import UserContextProvider from "./contexts/UserContext";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
-import AdminRoute from "./routes/AdminRoute";
-import PageNotFound from './pages/PageNotFound';
+// import AdminRoute from "./routes/AdminRoute";
+// import PageNotFound from "./pages/PageNotFound";
 
 const App = () => {
   return (
@@ -35,17 +35,15 @@ const App = () => {
           <Home />
         </PrivateRoute>
 
-        <PrivateRoute path="/history">
-          {/* <History /> */}
-        </PrivateRoute>
+        <PrivateRoute path="/history">{/* <History /> */}</PrivateRoute>
 
-        <AdminRoute path="/admin">
+        {/* <AdminRoute path="/admin">
           <Admin />
-        </AdminRoute>
+        </AdminRoute> */}
 
-        <Route path='*'>
+        {/* <Route path="*">
           <PageNotFound />
-        </Route>
+        </Route> */}
       </Router>
     </UserContextProvider>
   );
