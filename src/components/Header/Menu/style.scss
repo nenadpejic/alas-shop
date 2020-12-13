@@ -45,18 +45,38 @@
               width: 150px;
               font-size: map-get($font-size, 'small-');
               text-align: right;
-              background: $dark-gray-alpha;
-              border: 2px solid transparent;
+              background: $dark-gray-alpha2;
+              border: 3px solid transparent;
+              transition: 0.5s all ease;
             }
-            & .exit-drop-down {
+            & .exit-LI {
               display: flex; 
               align-items: center;
               justify-content: space-between;
             }
 
+            & .information-LI {
+              cursor: default;
+            }
+            & .admin-LI {
+              color: $white;
+              padding: 0;
+
+              & .admin {
+                text-decoration: none;
+                display: block;
+                padding: 10px;
+                color: $white;
+
+                &:hover {
+                  color: $orange;
+                }
+              }
+            }
+
             & li:hover {
-              border-bottom: 2px solid $orange;
-              border-right: 2px solid $orange;
+              border-bottom: 3px solid $orange;
+              border-right: 3px solid $orange;
               color: $orange;
             }
           }
