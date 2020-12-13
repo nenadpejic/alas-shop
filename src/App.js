@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
@@ -17,35 +17,37 @@ const App = () => {
   return (
     <UserContextProvider>
       <Router>
-        <PublicRoute exact path="/">
-          <Header />
-          <Landing />
-          <Footer />
-        </PublicRoute>
+        <Switch>
+          <PublicRoute exact path="/">
+            <Header />
+            <Landing />
+            <Footer />
+          </PublicRoute>
 
-        <PublicRoute path="/signup">
-          <Signup />
-        </PublicRoute>
+          <PublicRoute path="/signup">
+            <Signup />
+          </PublicRoute>
 
-        <PublicRoute path="/signin">
-          <Signin />
-        </PublicRoute>
+          <PublicRoute path="/signin">
+            <Signin />
+          </PublicRoute>
 
-        <PrivateRoute path="/home">
-          <Home />
-        </PrivateRoute>
+          <PrivateRoute path="/home">
+            <Home />
+          </PrivateRoute>
 
-        <PrivateRoute path="/history">
-          {/* <History /> */}
-        </PrivateRoute>
+          <PrivateRoute path="/history">
+            {/* <History /> */}
+          </PrivateRoute>
 
-        <AdminRoute path="/admin">
-          <Admin />
-        </AdminRoute>
+          <AdminRoute path="/admin">
+            <Admin />
+          </AdminRoute>
 
-        <Route path='*'>
-          <PageNotFound />
-        </Route>
+          <Route path='*'>
+            <PageNotFound />
+          </Route>
+        </Switch>
       </Router>
     </UserContextProvider>
   );
