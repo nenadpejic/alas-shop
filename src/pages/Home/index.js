@@ -1,59 +1,128 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchedUL from "../../components/SearchedUL";
 import ProductUL from "../../components/ProductUL";
+import {
+  getProducts,
+  createReceipt,
+  getReceipts,
+} from "../../services/firestore";
 import "./style.scss";
 
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
-  const [searchedListItem, setsearchedListItem] = useState([]);
-  const [productsListItem, setProductsListItem] = useState([]);
-  const [isActive, setIsActive] = useState(false);
+  const [searchProducts, setSearchProducts] = useState([]);
+  const [filterProducts, setFilterProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-  //Fake Data
-  const fakeData = [
-    { name: "Jaja", quantity: 0 },
-    { name: "Mleko", quantity: 0 },
-    { name: "Meso", quantity: 0 },
-    { name: "Jabuke", quantity: 0 },
-    { name: "Hleb", quantity: 0 },
-    { name: "Zejtin", quantity: 0 },
-  ];
+  //Catch products from firestore
+  useEffect(() => {
+    getProducts()
+      .then((snapShot) => {
+        if (!snapShot.empty) {
+          const docs = snapShot.docs;
+          const arr = [];
+          docs.forEach((doc) => {
+            const data = doc.data();
+            data.quantity = 1;
+            arr.push(data);
+          });
+          setSearchProducts(arr);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
+  //On change
   const handleChange = (e) => {
     setInputValue(e.target.value);
-    setIsActive(true);
-    let newFakeData = [...fakeData];
-    newFakeData = newFakeData.filter((elem) =>
+    let newData = searchProducts;
+    newData = newData.filter((elem) =>
       elem.name.toLowerCase().includes(e.target.value)
     );
-    setsearchedListItem(newFakeData);
+    setFilterProducts(newData);
   };
 
   //add item from searched list to products list
-  const handleProductList = (product) => {
-    let products = [...productsListItem];
-    products.unshift(product);
-    setProductsListItem(products);
-    setIsActive(false);
+  const handleProducts = (product) => {
+    let newProducts = products;
+    newProducts.unshift(product);
+    setProducts(newProducts);
     setInputValue("");
+
+    //Filtring Searched List when pick one products
+    let newData = searchProducts;
+    newData = newData.filter((elem) => elem.name !== product.name);
+    setSearchProducts(newData);
   };
 
-  //removing item from products List
-  const removeItem = (i) => {
-    let products = [...productsListItem];
-    products.forEach((elem, index) => {
-      if (index === i) {
-        products.splice(index, 1);
-      }
-    });
-    setProductsListItem(products);
+  //Removing item from products List
+  const removeItem = (product) => {
+    let newProducts = products;
+    newProducts = newProducts.filter((elem) => elem.name !== product.name);
+    setProducts(newProducts);
+
+    //Return removing item from products to searched list
+    let newSearched = searchProducts;
+    newSearched.unshift(product);
+    setSearchProducts(newSearched);
   };
+
+  //Change quantity of each products
+  const handleQuantity = (product, operation) => {
+    const newProducts = products.map((elem) => {
+      if (operation === "+") {
+        if (elem.name === product.name) {
+          return {
+            ...elem,
+            quantity: elem.quantity + 1,
+          };
+        }
+      } else if (operation === "-") {
+        if (elem.name === product.name) {
+          if (elem.quantity > 1) {
+            return {
+              ...elem,
+              quantity: elem.quantity - 1,
+            };
+          }
+        }
+      }
+      return {
+        ...elem,
+      };
+    });
+    setProducts(newProducts);
+  };
+
+  //Create Receipt
+  const handleReceipt = () => {
+    console.log(products);
+    createReceipt(products)
+      .then(() => console.log("Succefuly create receipt of products"))
+      .catch((err) => "Cannot create receipt of products" + err);
+  };
+
+  //PROVERA ZA RECEPTE
+  useEffect(() => {
+    getReceipts()
+      .then((snapShot) => {
+        if (!snapShot.empty) {
+          snapShot.docs.forEach((doc, i) => {
+            console.log(doc.id);
+            // console.log(doc.data());
+            // const createdAt = doc.data().createdAt;
+            // console.log(createdAt);
+            // const date = createdAt.toDate();
+            // console.log(date.toLocaleTimeString());
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <main className="home">
       <div className="wrapper">
-        <h1 className="home-title">Home</h1>
-
         <div className="search-wrapper">
           <label>Search for food</label>
           <input
@@ -63,18 +132,22 @@ const Home = () => {
             value={inputValue}
           />
         </div>
-        <div className="damjan">
-          {isActive ? (
+        <div className="lists-wrapper">
+          {inputValue ? (
             <SearchedUL
-              searchedListItem={searchedListItem}
-              handleProductList={handleProductList}
+              filterProducts={filterProducts}
+              handleProducts={handleProducts}
             />
           ) : (
             <ProductUL
-              productsListItem={productsListItem}
+              products={products}
               removeItem={removeItem}
+              handleQuantity={handleQuantity}
             />
           )}
+        </div>
+        <div className="button-wrapper">
+          {products.length > 0 && <button>Done</button>}
         </div>
       </div>
     </main>
