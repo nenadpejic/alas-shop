@@ -14,6 +14,7 @@ const Home = () => {
   const [searchProducts, setSearchProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
   const [products, setProducts] = useState([]);
+  const [test, setTest] = useState([]);
 
   //Catch products from firestore
   useEffect(() => {
@@ -109,7 +110,11 @@ const Home = () => {
       .then((snapShot) => {
         if (!snapShot.empty) {
           snapShot.docs.forEach((doc, i) => {
-            console.log(doc.id);
+            if (i === 0) {
+              setTest(doc.data().products);
+              console.log(doc.id);
+            }
+
             // console.log(doc.data());
             // const createdAt = doc.data().createdAt;
             // console.log(createdAt);
@@ -120,6 +125,10 @@ const Home = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
 
   return (
     <main className="home">
@@ -148,7 +157,9 @@ const Home = () => {
           )}
         </div>
         <div className="button-wrapper">
-          {products.length > 0 && <button>Done</button>}
+          {products.length > 0 && (
+            <button className="checkout-btn">Done</button>
+          )}
         </div>
       </div>
     </main>

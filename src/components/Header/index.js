@@ -34,10 +34,10 @@ const Header = () => {
             </Link>
             <nav className="nav">
               <ul className="nav-list">
-                <li>
+                <li className="ss-btn">
                   <Link to="/signup">Sign up</Link>
                 </li>
-                <li>
+                <li className="ss-btn">
                   <Link to="/signin">Sign in</Link>
                 </li>
               </ul>

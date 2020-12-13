@@ -5,13 +5,13 @@
   min-height: calc(100vh - 150px);
 
   & .wrapper {
+
     & .search-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 120px;
-      margin-top: 20px;
 
       & label {
         color: $orange;
@@ -40,22 +40,64 @@
         }
       }
     }
-    & .lists-wrapper {
-      border: 1px solid yellow;
-      width: 320px;
-      height: 400px;
-      margin: auto;
-      overflow-y: scroll;
-    }
 
     & .button-wrapper {
-      width: 100px;
-      margin: 15px auto;
-    }
+      width: 80px;
+      margin: auto;
 
-    & .button-wrapper button {
-      padding: 15px;
-      font-size: 1.1em;
+      & .checkout-btn {
+        position: relative;
+        width: 80px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        font-weight: map-get($font-weight, 'medium');
+        font-size: map-get($font-size, 'small');
+        color: $white;
+        background: $light-green;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: 0.5s all ease;
+
+        &:hover {
+          border: 2px solid $white;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -20px;
+          width: 6px;
+          height: 60px;
+          background: $white;
+          transform: rotate(30deg);
+          transition: 0.5s all ease;
+          opacity: 0.7;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -30px;
+          width: 3px;
+          height: 60px;
+          background: $white;
+          transform: rotate(30deg);
+          transition: 0.5s all ease;
+          opacity: 0.7;
+        }
+      }
+      & .checkout-btn:hover::before {
+        left: 65px;
+      }
+      
+      & .checkout-btn:hover::after {
+        left: 74px;
+      }
     }
   }
 }

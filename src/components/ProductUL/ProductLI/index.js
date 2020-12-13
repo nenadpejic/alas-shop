@@ -20,13 +20,19 @@ const ProductLI = ({ elem, removeItem, handleQuantity }) => {
           className="minus"
           type="button"
           onClick={() => handleQuantity(elem, "-")}
-        ></button>
+        >
+          <span className="minus-span">-</span>
+        </button>
+
         <div className="amount">{elem.quantity}</div>
+        
         <button
           className="plus"
           type="button"
           onClick={() => handleQuantity(elem, "+")}
-        ></button>
+        >
+          <span className="plus-span">+</span>
+        </button>
       </div>
     </li>
   );

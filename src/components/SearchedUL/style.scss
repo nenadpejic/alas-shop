@@ -7,9 +7,10 @@
 
     & .searched-list {
       width: 300px;
-      margin-bottom: 50px;
+      max-height: 250px;
+      overflow: auto;
+      padding-bottom: 20px;
       margin: auto;
-      border-radius: 10px;
 
       & .searched-item {
         position: relative;
@@ -27,6 +28,7 @@
         overflow: hidden;
         text-align: center;
       }
+
       & .searched-item:before {
         content: '';
         position: absolute;

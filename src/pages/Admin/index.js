@@ -4,6 +4,7 @@ import "./style.scss";
 
 const Admin = () => {
   const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
 
   const addAdminRole = functions.httpsCallable('addAdminRole');
 
@@ -12,7 +13,8 @@ const Admin = () => {
 
     addAdminRole({ email: email })
       .then(result => {
-        console.log(result);
+        // console.log(result);
+        setMsg(result.data.message);
       })
       .catch(err => {
         console.log(err);
@@ -28,6 +30,7 @@ const Admin = () => {
           <input type="email" name="email" id="admin-form-email" placeholder="Enter email.." required
             onChange={(e) => setEmail(e.target.value)} value={email} />
           <button type="submit">Make admin</button>
+          {msg && <p className='msg'>{msg}</p>}
         </form>
       </div>
     </main>
