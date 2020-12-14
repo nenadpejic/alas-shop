@@ -102,23 +102,23 @@ const Home = () => {
       .catch((err) => "Cannot create receipt of products" + err);
   };
 
-  //PROVERA ZA RECEPTE
-  useEffect(() => {
-    getReceipts()
-      .then((snapShot) => {
-        if (!snapShot.empty) {
-          snapShot.docs.forEach((doc, i) => {
-            console.log(doc.id);
-            // console.log(doc.data());
-            // const createdAt = doc.data().createdAt;
-            // console.log(createdAt);
-            // const date = createdAt.toDate();
-            // console.log(date.toLocaleTimeString());
-          });
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // PROVERA ZA RECEPTE
+  // useEffect(() => {
+  // getReceipts()
+  // .then((snapShot) => {
+  //  if (!snapShot.empty) {
+  //  snapShot.docs.forEach((doc, i) => {
+  // console.log(doc.id);
+  // console.log(doc.data());
+  // const createdAt = doc.data().createdAt;
+  // console.log(createdAt);
+  // const date = createdAt.toDate();
+  // console.log(date.toLocaleTimeString());
+  // });
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <main className="home">
@@ -147,7 +147,9 @@ const Home = () => {
           )}
         </div>
         <div className="button-wrapper">
-          {products.length > 0 && <button className="checkout-btn">Done</button>}
+          {products.length > 0 && (
+            <button className="checkout-btn">Done</button>
+          )}
         </div>
       </div>
     </main>

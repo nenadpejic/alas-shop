@@ -10,8 +10,9 @@ import Landing from "./pages/Landing";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Home from "./pages/Home";
+import History from "./pages/History";
 import Admin from "./pages/Admin";
-import PageNotFound from './pages/PageNotFound';
+import PageNotFound from "./pages/PageNotFound";
 
 const App = () => {
   return (
@@ -37,14 +38,14 @@ const App = () => {
           </PrivateRoute>
 
           <PrivateRoute exact path="/history">
-            {/* <History /> */}
+            <History />
           </PrivateRoute>
 
           <AdminRoute exact path="/admin">
             <Admin />
           </AdminRoute>
 
-          <Route path='*'>
+          <Route path="*">
             <PageNotFound />
           </Route>
         </Switch>
