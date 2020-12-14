@@ -11,12 +11,18 @@ const Menu = ({ setMenu }) => {
 
   const handleSignOut = () => {
     auth.signOut();
-  }
+  };
 
   return (
     <ul className="drop-down-menu">
       <li className="exit-LI">
-        <span onClick={() => { setMenu(false) }}>X</span>
+        <span
+          onClick={() => {
+            setMenu(false);
+          }}
+        >
+          X
+        </span>
         <span>Account</span>
       </li>
       <li className="information-LI">
@@ -24,10 +30,23 @@ const Menu = ({ setMenu }) => {
         <p>{user.email}</p>
         {user.admin && <p>Admin</p>}
       </li>
-      {user.admin && <li className="admin-LI"><Link className="admin" to="/admin">Admin</Link></li>}
+      {user.admin && (
+        <li className="admin-LI">
+          <Link className="admin" to="/admin">
+            Admin
+          </Link>
+        </li>
+      )}
+      {user.admin && (
+        <li className="admin-LI">
+          <Link className="admin" to="/create-product">
+            Create Product
+          </Link>
+        </li>
+      )}
       <li onClick={handleSignOut}>Sign out</li>
     </ul>
   );
-}
+};
 
 export default Menu;

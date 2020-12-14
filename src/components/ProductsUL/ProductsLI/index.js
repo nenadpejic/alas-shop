@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductLI = ({ elem, removeItem, handleQuantity }) => {
+const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
   return (
     <li className="list-item">
       <div>
@@ -25,7 +25,7 @@ const ProductLI = ({ elem, removeItem, handleQuantity }) => {
         </button>
 
         <div className="amount">{elem.quantity}</div>
-        
+
         <button
           className="plus"
           type="button"
@@ -38,4 +38,4 @@ const ProductLI = ({ elem, removeItem, handleQuantity }) => {
   );
 };
 
-export default ProductLI;
+export default ProductsLI;

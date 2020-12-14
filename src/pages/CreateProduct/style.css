@@ -1,0 +1,19 @@
+.wrapper-form {
+  width: 300px;
+  border: 1px solid white;
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.wrapper-form label,
+input {
+  padding: 10px;
+}
+
+.wrapper-form button {
+  padding: 10px;
+  margin-top: 20px;
+  background-color: blue;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./style.scss";
 import { getReceipts } from "../../services/firestore";
-import Receipt from "../../components/Receipt";
+import Receipts from "../../components/Receipts";
+import "./style.scss";
 
 const History = () => {
   const [receipts, setReceipts] = useState([]);
@@ -24,19 +24,18 @@ const History = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  useEffect(() => {
-    console.log(receipts);
-  }, [receipts]);
+  // useEffect(() => {
+  //   console.log(receipts);
+  // }, [receipts]);
 
   return (
     <>
-      <span className="receipt__date"></span>
       <h3>Lista kupovina</h3>
-      <div className="receipts__wrapper">
+      <div className="receipts-wrapper">
         {
-          <ul>
+          <ul className="receipts-wrapper-listitem">
             {receipts.map((receipt) => (
-              <Receipt receipt={receipt} />
+              <Receipts receipt={receipt} />
             ))}
           </ul>
         }

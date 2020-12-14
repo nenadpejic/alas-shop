@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import SearchedUL from "../../components/SearchedUL";
-import ProductUL from "../../components/ProductUL";
+import ProductsUL from "../../components/ProductsUL";
 import {
   getProducts,
   createReceipt,
@@ -132,7 +132,7 @@ const Home = () => {
                   handleProducts={handleProducts}
                 />
               ) : (
-                <ProductUL
+                <ProductsUL
                   products={products}
                   removeItem={removeItem}
                   handleQuantity={handleQuantity}
