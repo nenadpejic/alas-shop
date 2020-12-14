@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import History from "./pages/History";
 import Admin from "./pages/Admin";
 import PageNotFound from "./pages/PageNotFound";
+import HistoryReceiptID from "./pages/HistoryReceiptID";
 
 const App = () => {
   return (
@@ -39,6 +40,10 @@ const App = () => {
 
           <PrivateRoute exact path="/history">
             <History />
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/history/:slug">
+            <HistoryReceiptID />
           </PrivateRoute>
 
           <AdminRoute exact path="/admin">
