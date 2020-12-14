@@ -20,6 +20,14 @@ export const getReceipts = () => {
     .get();
 };
 
+export const getLatestReceipt = () => {
+  return firestore
+    .collection("receipts")
+    .orderBy("createdAt", "desc")
+    .limit(1)
+    .get();
+};
+
 // Products
 export const createProduct = (data) => {
   // data = {

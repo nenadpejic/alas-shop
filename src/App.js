@@ -13,6 +13,9 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import PageNotFound from "./pages/PageNotFound";
 
+import HistoryReceiptID from "./pages/HistoryReceiptID";
+// import History from "./pages/History";
+
 const App = () => {
   return (
     <UserContextProvider>
@@ -38,6 +41,10 @@ const App = () => {
 
           <PrivateRoute exact path="/history">
             {/* <History /> */}
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/history/:slug">
+            <HistoryReceiptID />
           </PrivateRoute>
 
           <AdminRoute exact path="/admin">

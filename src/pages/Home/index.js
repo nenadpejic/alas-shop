@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import SearchedUL from "../../components/SearchedUL";
 import ProductUL from "../../components/ProductUL";
 import {
   getProducts,
   createReceipt,
-  getReceipts,
+  getLatestReceipt,
 } from "../../services/firestore";
 import "./style.scss";
 
@@ -14,7 +14,7 @@ const Home = () => {
   const [searchProducts, setSearchProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
   const [products, setProducts] = useState([]);
-  const [test, setTest] = useState([]);
+  const [id, setId] = useState("");
 
   //Catch products from firestore
   useEffect(() => {
@@ -98,71 +98,61 @@ const Home = () => {
 
   //Create Receipt
   const handleReceipt = () => {
-    console.log(products);
     createReceipt(products)
-      .then(() => console.log("Succefuly create receipt of products"))
+      .then(() => {
+        console.log("Succefuly create receipt of products");
+        return getLatestReceipt();
+      })
+      .then((snapShot) => {
+        setId(snapShot.docs[0].id);
+      })
       .catch((err) => "Cannot create receipt of products" + err);
   };
 
-  //PROVERA ZA RECEPTE
-  useEffect(() => {
-    getReceipts()
-      .then((snapShot) => {
-        if (!snapShot.empty) {
-          snapShot.docs.forEach((doc, i) => {
-            if (i === 0) {
-              setTest(doc.data().products);
-              console.log(doc.id);
-            }
-
-            // console.log(doc.data());
-            // const createdAt = doc.data().createdAt;
-            // console.log(createdAt);
-            // const date = createdAt.toDate();
-            // console.log(date.toLocaleTimeString());
-          });
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
-    console.log(test);
-  }, [test]);
-
   return (
-    <main className="home">
-      <div className="wrapper">
-        <div className="search-wrapper">
-          <label>Search for food</label>
-          <input
-            type="text"
-            placeholder="Enter food name..."
-            onChange={handleChange}
-            value={inputValue}
-          />
-        </div>
-        <div className="lists-wrapper">
-          {inputValue ? (
-            <SearchedUL
-              filterProducts={filterProducts}
-              handleProducts={handleProducts}
-            />
-          ) : (
-            <ProductUL
-              products={products}
-              removeItem={removeItem}
-              handleQuantity={handleQuantity}
-            />
-          )}
-        </div>
-        <div className="button-wrapper">
-          {products.length > 0 && (
-            <button className="checkout-btn">Done</button>
-          )}
-        </div>
-      </div>
-    </main>
+    <>
+      {id ? (
+        <Redirect to={`/history/${id}`} />
+      ) : (
+        <main className="home">
+          <div className="wrapper">
+            <div className="search-wrapper">
+              <label>Search for food</label>
+              <input
+                type="text"
+                placeholder="Enter food name..."
+                onChange={handleChange}
+                value={inputValue}
+              />
+            </div>
+            <div className="lists-wrapper">
+              {inputValue ? (
+                <SearchedUL
+                  filterProducts={filterProducts}
+                  handleProducts={handleProducts}
+                />
+              ) : (
+                <ProductUL
+                  products={products}
+                  removeItem={removeItem}
+                  handleQuantity={handleQuantity}
+                />
+              )}
+            </div>
+            <div className="button-wrapper">
+              {products.length > 0 && (
+                <button
+                  className="checkout-btn"
+                  onClick={() => handleReceipt()}
+                >
+                  Done
+                </button>
+              )}
+            </div>
+          </div>
+        </main>
+      )}
+    </>
   );
 };
 
