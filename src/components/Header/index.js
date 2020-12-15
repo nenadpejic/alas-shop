@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo2.png";
-import './style.scss';
+import "./style.scss";
 import { UserContext } from "../../contexts/UserContext";
 import Menu from "./Menu";
 
@@ -14,8 +14,8 @@ const Header = () => {
   return (
     <header className="header">
       <div className="wrapper">
-        {user
-          ? <>
+        {user ? (
+          <>
             <Link to="/home" className="logoLink">
               <img src={Logo} alt="logo" className="logo" />
             </Link>
@@ -28,7 +28,8 @@ const Header = () => {
               </ul>
             </nav>
           </>
-          : <>
+        ) : (
+          <>
             <Link to="/" className="logoLink">
               <img src={Logo} alt="logo" className="logo" />
             </Link>
@@ -42,7 +43,8 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-          </>}
+          </>
+        )}
       </div>
     </header>
   );

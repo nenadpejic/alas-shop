@@ -27,7 +27,6 @@ const History = () => {
   useEffect(() => {
     console.log(receipts);
   }, [receipts]);
-
   return (
     <>
       <span className="receipt__date"></span>
@@ -36,7 +35,7 @@ const History = () => {
         {
           <ul>
             {receipts.map((receipt) => (
-              <Receipt receipt={receipt} />
+              <Receipt key={receipt} receipt={receipt} />
             ))}
           </ul>
         }
