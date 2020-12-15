@@ -1,12 +1,12 @@
 import React from "react";
-import ProductLI from "./ProductLI";
+import ProductsLI from "./ProductsLI";
 import "./style.scss";
 
-const ProductUL = ({ removeItem, handleQuantity, products }) => {
+const ProductsUL = ({ removeItem, handleQuantity, products }) => {
   return (
     <ul className="product-list">
       {products?.map((elem, index) => (
-        <ProductLI
+        <ProductsLI
           removeItem={removeItem}
           key={index}
           index={index}
@@ -17,4 +17,4 @@ const ProductUL = ({ removeItem, handleQuantity, products }) => {
     </ul>
   );
 };
-export default ProductUL;
+export default ProductsUL;

@@ -11,9 +11,10 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Home from "./pages/Home";
 import History from "./pages/History";
+import HistoryItem from "./pages/HistoryItem";
 import Admin from "./pages/Admin";
 import PageNotFound from "./pages/PageNotFound";
-import HistoryReceiptID from "./pages/HistoryReceiptID";
+import CreateProduct from "./pages/CreateProduct";
 
 const App = () => {
   return (
@@ -43,11 +44,15 @@ const App = () => {
           </PrivateRoute>
 
           <PrivateRoute exact path="/history/:slug">
-            <HistoryReceiptID />
+            <HistoryItem />
           </PrivateRoute>
 
           <AdminRoute exact path="/admin">
             <Admin />
+          </AdminRoute>
+
+          <AdminRoute exact path="/create-product">
+            <CreateProduct />
           </AdminRoute>
 
           <Route path="*">

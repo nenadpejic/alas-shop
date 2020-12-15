@@ -1,26 +1,12 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import React from "react";
 import "./style.scss";
 
-const Receipt = ({ receipt }) => {
-  const [test, setTest] = useState(false);
-  const date = receipt.createdAt.toDate();
-  const day = date.getDate();
-  const month = date.getMonth();
-  const year = date.getFullYear();
-
-  const handleClick = () => {
-    setTest(true);
-    console.log(receipt);
-  };
+const Receipt = ({ product }) => {
   return (
-    <>
-      {test ? (
-        <Redirect to={`/history/${receipt.id}`} />
-      ) : (
-        <li onClick={handleClick}>{String(receipt.createdAt.toDate())}</li>
-      )}
-    </>
+    <li className="receipt-list-item">
+      <p>Name: {product.name}</p>
+      <p>Quantity: {product.quantity}</p>
+    </li>
   );
 };
 

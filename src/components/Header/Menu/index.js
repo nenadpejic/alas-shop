@@ -40,6 +40,13 @@ const Menu = ({ setMenu }) => {
           </Link>
         </li>
       )}
+      {user.admin && (
+        <li className="admin-LI">
+          <Link className="admin" to="/create-product">
+            Create Product
+          </Link>
+        </li>
+      )}
       <li onClick={handleSignOut}>Sign out</li>
     </ul>
   );
