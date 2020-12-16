@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
 import { auth } from "../../../services/fire";
 import "./style.scss";
 
-const Menu = ({ setMenu }) => {
+const Menu = ({ setMenu, menuRef }) => {
   const userContext = useContext(UserContext);
   const { user } = userContext;
   const { username } = userContext;
@@ -13,16 +13,29 @@ const Menu = ({ setMenu }) => {
     auth.signOut();
   };
 
+  const handleClickInside = (e) => {
+    if (e.target.tagName === "A") {
+      setMenu(false);
+    }
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenu(false);
+      }
+    }
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    }
+  }, [menuRef, setMenu]);
+
   return (
-    <ul className="drop-down-menu">
+    <ul className="drop-down-menu" onClick={handleClickInside}>
       <li className="exit-LI">
-        <span
-          onClick={() => {
-            setMenu(false);
-          }}
-        >
-          X
-        </span>
+        <span onClick={() => setMenu(false)}>X</span>
         <span>Account</span>
       </li>
       <li className="information-LI">
@@ -34,18 +47,14 @@ const Menu = ({ setMenu }) => {
         <Link to="/history">History</Link>
       </li>
       {user.admin && (
-        <li className="admin-LI">
-          <Link className="admin" to="/admin">
-            Admin
-          </Link>
-        </li>
-      )}
-      {user.admin && (
-        <li className="admin-LI">
-          <Link className="admin" to="/create-product">
-            Create Product
-          </Link>
-        </li>
+        <>
+          <li className="admin-LI">
+            <Link className="admin" to="/admin">Admin</Link>
+          </li>
+          <li className="admin-LI">
+            <Link className="admin" to="/create-product">Create Product</Link>
+          </li>
+        </>
       )}
       <li onClick={handleSignOut}>Sign out</li>
     </ul>
