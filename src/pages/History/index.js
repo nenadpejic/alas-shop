@@ -24,23 +24,19 @@ const History = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // useEffect(() => {
-  //   console.log(receipts);
-  // }, [receipts]);
-
   return (
-    <>
+    <main className="history">
       <h3>Lista kupovina</h3>
       <div className="receipts-wrapper">
         {
           <ul className="receipts-wrapper-listitem">
             {receipts.map((receipt) => (
-              <Receipt key={receipt} receipt={receipt} />
+              <Receipts key={receipt.id} receipt={receipt} />
             ))}
           </ul>
         }
       </div>
-    </>
+    </main>
   );
 };
 
