@@ -30,19 +30,19 @@ const Menu = ({ setMenu }) => {
         <p>{user.email}</p>
         {user.admin && <p>Admin</p>}
       </li>
-      <li>
+      <li className="history-LI">
         <Link to="/history">History</Link>
       </li>
       {user.admin && (
         <li className="admin-LI">
-          <Link className="admin" to="/admin">
+          <Link to="/admin">
             Admin
           </Link>
         </li>
       )}
       {user.admin && (
-        <li className="admin-LI">
-          <Link className="admin" to="/create-product">
+        <li className="create-product-LI">
+          <Link to="/create-product">
             Create Product
           </Link>
         </li>

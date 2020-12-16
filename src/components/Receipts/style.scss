@@ -1,8 +1,33 @@
 @import "../../scss/variables";
 @import "../../scss/mixin";
 
-.listitem {
-  border: 1px solid green;
-  padding: 10px;
-  background-color: rgb(89, 116, 50);
+.main {
+
+    & .wrapper {
+      
+        & .shopping-list {
+          padding: 20px;
+
+          & li {
+            background: $dark-gray-alpha2;
+            color: $white;
+            border: 2px solid $white;
+            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s all ease;
+            list-style-type: none;
+            position: relative;
+            overflow: hidden;
+
+            &:hover {
+                box-shadow: 0 0 10px 5px $orange;
+                color: $orange;
+                border: 2px solid $orange;
+            }
+          }
+        }
+    }
 }

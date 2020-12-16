@@ -15,10 +15,10 @@ const Receipts = ({ receipt }) => {
       {test ? (
         <Redirect to={`/history/${receipt.id}`} />
       ) : (
-        <li className="listitem" onClick={handleClick}>
-          {formatDate(date)}
-        </li>
-      )}
+          <li className="shoping-list-item" onClick={handleClick}>
+            {formatDate(date)}
+          </li>
+        )}
     </>
   );
 };

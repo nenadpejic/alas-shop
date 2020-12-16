@@ -4,8 +4,8 @@ import "./style.scss";
 const Receipt = ({ product }) => {
   return (
     <li className="receipt-list-item">
-      <p>Name: {product.name}</p>
-      <p>Quantity: {product.quantity}</p>
+      <p>Name: <span>{product.name}</span></p>
+      <p>Quantity: <span>{product.quantity}</span></p>
     </li>
   );
 };
