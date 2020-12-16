@@ -24,10 +24,6 @@ const History = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // useEffect(() => {
-  //   console.log(receipts);
-  // }, [receipts]);
-
   return (
     <main className="main">
       <div className="wrapper">

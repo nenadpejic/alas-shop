@@ -17,6 +17,7 @@ export const getReceipts = () => {
   return firestore
     .collection("receipts")
     .where("createdBy", "==", auth.currentUser.uid)
+    .orderBy("createdAt", "desc")
     .get();
 };
 
