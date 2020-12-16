@@ -22,7 +22,7 @@ const Admin = () => {
   };
 
   return (
-    <main id="admin">
+    <main className="admin">
       <div className="wrapper">
         <h1>Admin</h1>
         <form className="admin-form" onSubmit={handleSubmit}>
@@ -36,7 +36,7 @@ const Admin = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-          <button type="submit">Make admin</button>
+          <button className="submitBtn" type="submit">Make admin</button>
           {msg && <p className="msg">{msg}</p>}
         </form>
       </div>

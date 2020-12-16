@@ -43,16 +43,16 @@ const Menu = ({ setMenu, menuRef }) => {
         <p>{user.email}</p>
         {user.admin && <p>Admin</p>}
       </li>
-      <li>
+      <li className="history-LI">
         <Link to="/history">History</Link>
       </li>
       {user.admin && (
         <>
           <li className="admin-LI">
-            <Link className="admin" to="/admin">Admin</Link>
+            <Link to="/admin">Admin</Link>
           </li>
-          <li className="admin-LI">
-            <Link className="admin" to="/create-product">Create Product</Link>
+          <li className="create-product-LI">
+            <Link to="/create-product">Create Product</Link>
           </li>
         </>
       )}

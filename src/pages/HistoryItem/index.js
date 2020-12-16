@@ -26,23 +26,23 @@ const HistoryItem = () => {
   }, [slug]);
 
   return (
-    <div className="receiptID">
+    <main className="main">
       <div className="wrapper">
-        <div className="wrapper-listitem">
-          <p className="wrapper-para">{formatDate(createdAt)}</p>
-          <ul className="wrapper-ul">
-            {products.map((product, index) => (
-              <Receipt key={index} product={product} />
-            ))}
-          </ul>
-        </div>
-        <div className="wrapper-button">
-          <button>
-            <Link to="/home">Back to Home</Link>
-          </button>
-        </div>
+        <h1 className="title">List of products</h1>
+        <p className="date">{formatDate(createdAt)}</p>
+        <ul className="list-of-products">
+          {products.map((product, index) => (
+            <Receipt key={index} product={product} />
+          ))}
+        </ul>
+        <button className="back-to-history">
+          <Link to="/history">Back to History</Link>
+        </button>
+        <button className="back-to-home">
+          <Link to="/home">Start new list</Link>
+        </button>
       </div>
-    </div>
+    </main>
   );
 };
 

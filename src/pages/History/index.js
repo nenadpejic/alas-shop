@@ -25,16 +25,14 @@ const History = () => {
   }, []);
 
   return (
-    <main className="history">
-      <h3>Lista kupovina</h3>
-      <div className="receipts-wrapper">
-        {
-          <ul className="receipts-wrapper-listitem">
-            {receipts.map((receipt) => (
-              <Receipts key={receipt.id} receipt={receipt} />
-            ))}
-          </ul>
-        }
+    <main className="main">
+      <div className="wrapper">
+        <h1>Lista kupovina</h1>
+        <ul className="shopping-list">
+          {receipts.map((receipt) => (
+            <Receipts key={receipt.id} receipt={receipt} />
+          ))}
+        </ul>
       </div>
     </main>
   );

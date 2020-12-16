@@ -18,3 +18,16 @@ $desktop: 1023px;
         @content;
     }
 }
+
+
+@keyframes blinkLI {
+    0% {
+        background: $dark-gray-alpha;
+    }
+    50% {
+        background: $orange;
+    }
+    100% {
+        background: $dark-gray-alpha;
+    }
+}
