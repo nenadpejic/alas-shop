@@ -4,15 +4,15 @@ import { formatDate } from "../../utilities/index";
 import "./style.scss";
 
 const Receipts = ({ receipt }) => {
-  const [test, setTest] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const date = String(receipt.createdAt.toDate());
 
   const handleClick = () => {
-    setTest(true);
+    setIsClicked(true);
   };
   return (
     <>
-      {test ? (
+      {isClicked ? (
         <Redirect to={`/history/${receipt.id}`} />
       ) : (
         <li className="listitem" onClick={handleClick}>
