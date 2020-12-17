@@ -2,14 +2,15 @@ import { firestore, auth } from "./fire";
 
 // Receipts
 export const createReceipt = (data) => {
-  // data = [{
-  //   name: "Jabuka",
-  //   quantity: 3
-  // }]
+  // data = {
+  //   products: [{name: "Jabuka", quantity: 3, price: 10, total: 30}],
+  //   totalPrice: 1150,
+  // }
   return firestore.collection("receipts").doc().set({
     createdAt: new Date(),
     createdBy: auth.currentUser.uid,
-    products: data,
+    products: data.products,
+    totalPrice: data.totalPrice
   });
 };
 
