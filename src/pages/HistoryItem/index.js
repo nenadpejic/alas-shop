@@ -19,7 +19,7 @@ const HistoryItem = () => {
         if (snapShot.exists) {
           const data = snapShot.data();
           setProducts(data.products);
-          setCreatedAt(data.createdAt.toDate());
+          setCreatedAt(formatDate(data.createdAt.toDate()));
         }
       })
       .catch((err) => console.log(err));
@@ -29,7 +29,7 @@ const HistoryItem = () => {
     <main className="main">
       <div className="wrapper">
         <h1 className="title">List of products</h1>
-        <p className="date">{formatDate(createdAt)}</p>
+        <p className="date">{createdAt}</p>
         <ul className="list-of-products">
           {products.map((product, index) => (
             <Receipt key={index} product={product} />

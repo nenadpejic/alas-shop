@@ -1,11 +1,10 @@
 export const formatDate = (date) => {
-  date = new Date(date);
   const year = date.getFullYear();
   const month = date.getMonth();
-  const day = date.getDate().toString();
-  const hours = date.getHours().toString();
-  const min = date.getMinutes().toString();
-  const sec = date.getSeconds().toString();
+  const day = date.getDate().toString().padStart(2, "0");
+  const hours = date.getHours().toString().padStart(2, "0");
+  const min = date.getMinutes().toString().padStart(2, "0");
+  const sec = date.getSeconds().toString().padStart(2, "0");
   const monthNames = [
     "January",
     "February",
@@ -20,10 +19,6 @@ export const formatDate = (date) => {
     "November",
     "December",
   ];
-  return `${day.padStart(2, "0")} ${
-    monthNames[month]
-  } ${year} - ${hours.padStart(2, "0")}:${min.padStart(2, "0")}:${sec.padStart(
-    2,
-    "0"
-  )}`;
+
+  return `${day} ${monthNames[month]} ${year} - ${hours}:${min}:${sec}`;
 };
