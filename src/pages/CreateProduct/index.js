@@ -5,21 +5,21 @@ import "./style.css";
 const CreateProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const data = {
-    name: name,
-    price: price,
-  };
 
   const handleChange = (e) => {
     if (e.target.id === "name") {
       setName(e.target.value);
     } else if (e.target.id === "price") {
-      setPrice(e.target.value);
+      setPrice(Number(e.target.value));
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = {
+      name: name,
+      price: price,
+    };
     createProduct(data)
       .then(() => console.log("Succefuly added"))
       .catch((err) => console.log("Cannot add document", err));

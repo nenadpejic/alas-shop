@@ -15,6 +15,7 @@ const Home = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [id, setId] = useState("");
+  const [price, setPrice] = useState(0);
 
   //Catch products from firestore
   useEffect(() => {
@@ -34,6 +35,18 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    console.log(searchProducts);
+  }, [searchProducts]);
+
+  // useEffect(() => {
+  //   console.log(products);
+  // }, [products]);
+
+  useEffect(() => {
+    console.log(price);
+  }, [price]);
+
   //On change
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -48,6 +61,12 @@ const Home = () => {
   const handleProducts = (product) => {
     let newProducts = products;
     newProducts.unshift(product);
+    // setPrice(product.price);
+    newProducts.forEach((elem) => {
+      if (elem.name === product.name) {
+        setPrice(product.price);
+      }
+    });
     setProducts(newProducts);
     setInputValue("");
 
@@ -98,7 +117,16 @@ const Home = () => {
 
   //Create Receipt
   const handleReceipt = () => {
-    createReceipt(products)
+    let totalPrice = 0;
+    products.forEach((product) => {
+      product.total = product.quantity * product.price;
+      totalPrice += product.total;
+    });
+    const data = {
+      products: products,
+      totalPrice: totalPrice,
+    };
+    createReceipt(data)
       .then(() => {
         console.log("Succefuly create receipt of products");
         return getLatestReceipt();

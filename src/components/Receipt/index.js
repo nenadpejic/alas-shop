@@ -6,6 +6,8 @@ const Receipt = ({ product }) => {
     <li className="receipt-list-item">
       <p>Name: {product.name}</p>
       <p>Quantity: {product.quantity}</p>
+      <p>Total: {product.total}</p>
+      <p>Price: {product.price}</p>
     </li>
   );
 };

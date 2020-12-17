@@ -2,9 +2,7 @@
 @import "../../scss/mixin";
 
 .home {
-
   & .wrapper {
-    
     & .product-list {
       width: 300px;
       max-height: 250px;
@@ -43,6 +41,14 @@
             text-align: center;
             font-weight: map-get($font-weight, "medium");
           }
+
+          & .product-price {
+            color: $white;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: map-get($font-weight, "medium");
+          }
+
           & .suggested-amount {
             color: $orange;
             font-style: italic;
@@ -69,7 +75,7 @@
             border: none;
             outline: none;
             cursor: pointer;
-            font-size: map-get($font-size, 'medium');
+            font-size: map-get($font-size, "medium");
             position: relative;
             border: 2px solid transparent;
             transition: 0.5s all ease;
@@ -93,7 +99,7 @@
           }
 
           & .plus:hover {
-            border: 2px solid $light-green; 
+            border: 2px solid $light-green;
           }
           & .plus:hover .plus-span {
             color: $light-green;

@@ -13,6 +13,7 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
       <div className="product-wrapper">
         <p className="product-name">{elem.name}</p>
         <p className="suggested-amount">Suggested amount: 5</p>
+        <p className="product-price">{elem.price} rsd</p>
       </div>
 
       <div className="btn-wrapper">
