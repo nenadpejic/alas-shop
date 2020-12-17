@@ -17,7 +17,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         : user
           ? <>
             < Header />
-            { children}
+            {children}
             < Footer />
           </>
           : <Redirect to="/" />}

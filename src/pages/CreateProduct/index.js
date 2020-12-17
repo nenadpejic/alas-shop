@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createProduct } from "../../services/firestore";
-import "./style.css";
+import "./style.scss";
 
 const CreateProduct = () => {
   const [name, setName] = useState("");
@@ -28,9 +28,10 @@ const CreateProduct = () => {
   };
 
   return (
-    <div className="create-product">
+    <main className="main">
       <div className="wrapper">
-        <form onSubmit={handleSubmit} className="wrapper-form">
+        <h1>Create product</h1>
+        <form className="create-product-form" onSubmit={handleSubmit}>
           <label>Name of product</label>
           <input
             onChange={handleChange}
@@ -47,10 +48,10 @@ const CreateProduct = () => {
             placeholder="Enter price of product..."
             id="price"
           />
-          <button type="submit">Add Product</button>
+          <button className="submitBtn" type="submit">Add Product</button>
         </form>
       </div>
-    </div>
+    </main>
   );
 };
 

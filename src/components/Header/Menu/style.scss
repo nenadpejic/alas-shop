@@ -15,7 +15,7 @@
 
           & .drop-down-menu {
             position: absolute;
-            top: 30px;
+            top: 100%;
             right: 0;
 
             & li {
@@ -28,7 +28,10 @@
               background: $dark-gray-alpha2;
               border: 3px solid transparent;
               transition: 0.5s all ease;
+              position: relative;
+              overflow: hidden;
             }
+
             & .exit-LI {
               display: flex; 
               align-items: center;
@@ -38,11 +41,44 @@
             & .information-LI {
               cursor: default;
             }
+
+            & .history-LI {
+              color: $white;
+              padding: 0;
+
+              & a {
+                text-decoration: none;
+                display: block;
+                padding: 10px;
+                color: $white;
+
+                &:hover {
+                  color: $orange;
+                }
+              }
+            }
+
             & .admin-LI {
               color: $white;
               padding: 0;
 
-              & .admin {
+              & a {
+                text-decoration: none;
+                display: block;
+                padding: 10px;
+                color: $white;
+
+                &:hover {
+                  color: $orange;
+                }
+              }
+            }
+
+            & .create-product-LI {
+              color: $white;
+              padding: 0;
+
+              & a {
                 text-decoration: none;
                 display: block;
                 padding: 10px;
@@ -58,6 +94,7 @@
               border-bottom: 3px solid $orange;
               border-right: 3px solid $orange;
               color: $orange;
+              animation: blinkLI 0.5s forwards;
             }
           }
         }

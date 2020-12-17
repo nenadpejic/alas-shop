@@ -1,18 +1,23 @@
 @import "../../scss/variables";
 @import "../../scss/mixin";
 
-.receipts-wrapper {
-  color: yellow;
-  border: 1px solid yellow;
-  width: 230px;
-  margin: 20px auto;
-  height: 400px;
-  overflow-y: scroll;
+.main {
+  min-height: calc(100vh - 150px);
 
-  & .receipts-wrapper-listitem {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    font-size: 1.3em;
+  & .wrapper {
+
+    & h1 {
+      color: $white;
+      font-size: 50px;
+      padding: 0 0 20px 0;
+    }
+
+    & .shopping-list {
+      width: 300px;
+      max-height: 250px;
+      overflow: auto;
+      margin: auto;
+      margin-bottom: 20px;
+    }
   }
 }

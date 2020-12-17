@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo2.png";
 import "./style.scss";
@@ -6,10 +6,11 @@ import { UserContext } from "../../contexts/UserContext";
 import Menu from "./Menu";
 
 const Header = () => {
-  const [menu, setMenu] = useState(false);
   const userContext = useContext(UserContext);
   const { user } = userContext;
   const { username } = userContext;
+  const [menu, setMenu] = useState(false);
+  const menuRef = useRef();
 
   return (
     <header className="header">
@@ -21,30 +22,30 @@ const Header = () => {
             </Link>
             <nav className="nav">
               <ul className="nav-list">
-                <li className="user-email">
+                <li className="user-email" ref={menuRef}>
                   <span onClick={() => setMenu(!menu)}>{username}</span>
-                  {menu && <Menu setMenu={setMenu} />}
+                  {menu && <Menu setMenu={setMenu} menuRef={menuRef} />}
                 </li>
               </ul>
             </nav>
           </>
         ) : (
-          <>
-            <Link to="/" className="logoLink">
-              <img src={Logo} alt="logo" className="logo" />
-            </Link>
-            <nav className="nav">
-              <ul className="nav-list">
-                <li className="ss-btn">
-                  <Link to="/signup">Sign up</Link>
-                </li>
-                <li className="ss-btn">
-                  <Link to="/signin">Sign in</Link>
-                </li>
-              </ul>
-            </nav>
-          </>
-        )}
+            <>
+              <Link to="/" className="logoLink">
+                <img src={Logo} alt="logo" className="logo" />
+              </Link>
+              <nav className="nav">
+                <ul className="nav-list">
+                  <li className="ss-btn">
+                    <Link to="/signup">Sign up</Link>
+                  </li>
+                  <li className="ss-btn">
+                    <Link to="/signin">Sign in</Link>
+                  </li>
+                </ul>
+              </nav>
+            </>
+          )}
       </div>
     </header>
   );
