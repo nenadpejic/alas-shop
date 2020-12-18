@@ -37,7 +37,7 @@ const HistoryItem = () => {
             <Receipt key={index} product={product} />
           ))}
         </ul>
-        <div>{totalPrice}</div>
+        <div className="total-price">Total Price: {totalPrice}</div>
         <button className="back-to-history">
           <Link to="/history">Back to History</Link>
         </button>
