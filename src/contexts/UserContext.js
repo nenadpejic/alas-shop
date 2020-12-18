@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { auth, firestore } from "../services/fire";
-import { getReceiptsOS, updateSuggested, getSuggested, getLatestReceipt } from "../services/firestore";
+import { getReceiptsOS, updateSuggested } from "../services/firestore";
 import { createSuggested } from "../utilities";
 
 export const UserContext = createContext();
@@ -19,6 +19,7 @@ const UserContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
+    let unsubscribe;
     auth.onAuthStateChanged(user => {
       setUser(user);
       if (user) {
@@ -39,63 +40,40 @@ const UserContextProvider = ({ children }) => {
             console.log(err);
           });
 
-        // checking if lastReceiptCreatedAt < suggestedCreatedAt
-        let lastReceiptCreatedAt;
-        getLatestReceipt()
-          .then(snapshot => {
-            if (snapshot.empty) {
-              console.log("Snapshot is empty!");
-            } else {
-              lastReceiptCreatedAt = snapshot.docs[0].data().createdAt;
-              return getSuggested();
-            }
-          })
-          .then(snapshot => {
-            if (!snapshot.exists) {
-              console.log("Document dosen't exist!");
-            } else {
-              const suggestedCreatedAt = snapshot.data().suggestedCreatedAt;
-              if (lastReceiptCreatedAt < suggestedCreatedAt) {
-                const sugg1 = snapshot.data().suggested;
-                setSuggested(sugg1);
+        // handling suggested
+        // setSuggested on app refresh and new receipt added
+        unsubscribe = getReceiptsOS(snapshot => {
+          if (snapshot.empty) {
+            console.log("Snapshot is empty!");
+          } else {
+            const docs = snapshot.docs;
+            // concatenate products
+            let concatProducts = [];
+            docs.forEach(doc => {
+              if (!doc.exists) {
+                console.log("Document dosen't exist!");
               } else {
-                // handling suggested
-                getReceiptsOS(snapshot => {
-                  if (snapshot.empty) {
-                    console.log("Snapshot is empty!");
-                  } else {
-                    const docs = snapshot.docs;
-                    // concatenate products
-                    let concatProducts = [];
-                    docs.forEach(doc => {
-                      if (!doc.exists) {
-                        console.log("Document dosen't exist!");
-                      } else {
-                        const products = doc.data().products;
-                        concatProducts = concatProducts.concat(products);
-                      }
-                    })
-                    // console.log(JSON.parse(JSON.stringify(concatProducts)));
-                    // create suggested
-                    const sugg = createSuggested(concatProducts);
-                    // console.log(sugg);
-                    setSuggested(sugg);
-                    updateSuggested(sugg)
-                      .then(() => {
-                        console.log("Suggested updated!");
-                      })
-                      .catch(err => {
-                        console.log(err)
-                      })
-                  }
-                }, err => {
-                  console.log(err)
-                });
+                const products = doc.data().products;
+                concatProducts = concatProducts.concat(products);
               }
-            }
-          })
-
+            })
+            // create suggested with func from util
+            const sugg = createSuggested(concatProducts);
+            setSuggested(sugg);
+            // optional ask if lastReceiptCreatedAt > suggestedCreatedAt
+            updateSuggested(sugg)
+              .then(() => {
+                console.log("Suggested updated!");
+              })
+              .catch(err => {
+                console.log(err)
+              })
+          }
+        }, err => {
+          console.log(err)
+        });
       } else {
+        unsubscribe && unsubscribe();
         setIsLoading(false);
         console.log(`User sign out: `, user);
       }
