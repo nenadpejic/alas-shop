@@ -50,6 +50,11 @@ const Home = () => {
   //add item from searched list to products list
   const handleProducts = (product) => {
     let newProducts = products;
+    suggested.forEach((sugg) => {
+      if (product.name === sugg.name) {
+        product.suggQuantity = sugg.suggQuantity;
+      }
+    });
     newProducts.unshift(product);
     setProducts(newProducts);
     setInputValue("");
@@ -98,14 +103,6 @@ const Home = () => {
     });
     setProducts(newProducts);
   };
-
-  // useEffect(() => {
-  //   console.log(products);
-  // }, [products]);
-
-  useEffect(() => {
-    console.log(suggested);
-  }, [suggested]);
 
   //Create Receipt
   const handleReceipt = () => {

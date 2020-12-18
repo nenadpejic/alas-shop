@@ -12,7 +12,11 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
       </div>
       <div className="product-wrapper">
         <p className="product-name">{elem.name}</p>
-        <p className="suggested-amount">Suggested amount of quantity: 5</p>
+        {elem.suggQuantity && (
+          <p className="suggested-amount">
+            Suggested quantity: {elem.suggQuantity}
+          </p>
+        )}
         <p className="product-price">{elem.price} rsd</p>
       </div>
 
