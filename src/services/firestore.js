@@ -42,3 +42,16 @@ export const createProduct = (data) => {
 export const getProducts = () => {
   return firestore.collection("products").get();
 };
+
+// Users
+export const updateSuggested = (data) => {
+  // data = [{name: "Jabuka", quantity: 3}]
+  return firestore.collection("users").doc(auth.currentUser.uid).update({
+    suggested: data,
+    createdAt: new Date()
+  });
+};
+
+export const getSuggested = () => {
+  return firestore.collection("users").doc(auth.currentUser.uid).get();
+};
