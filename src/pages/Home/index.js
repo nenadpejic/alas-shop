@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import SearchedUL from "../../components/SearchedUL";
 import ProductsUL from "../../components/ProductsUL";
@@ -7,6 +7,7 @@ import {
   createReceipt,
   getLatestReceipt,
 } from "../../services/firestore";
+import { UserContext } from "../../contexts/UserContext";
 import "./style.scss";
 
 const Home = () => {
@@ -15,6 +16,8 @@ const Home = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [id, setId] = useState("");
+  const userContext = useContext(UserContext);
+  const { suggested } = userContext;
 
   //Catch products from firestore
   useEffect(() => {
@@ -95,6 +98,14 @@ const Home = () => {
     });
     setProducts(newProducts);
   };
+
+  // useEffect(() => {
+  //   console.log(products);
+  // }, [products]);
+
+  useEffect(() => {
+    console.log(suggested);
+  }, [suggested]);
 
   //Create Receipt
   const handleReceipt = () => {
