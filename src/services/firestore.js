@@ -22,6 +22,14 @@ export const getReceipts = () => {
     .get();
 };
 
+export const getReceiptsOS = (cb1, cb2) => {
+  return firestore
+    .collection("receipts")
+    .where("createdBy", "==", auth.currentUser.uid)
+    .orderBy("createdAt", "desc")
+    .onSnapshot(cb1, cb2)
+};
+
 export const getLatestReceipt = () => {
   return firestore
     .collection("receipts")
@@ -48,7 +56,7 @@ export const updateSuggested = (data) => {
   // data = [{name: "Jabuka", quantity: 3}]
   return firestore.collection("users").doc(auth.currentUser.uid).update({
     suggested: data,
-    createdAt: new Date()
+    suggestedCreatedAt: new Date()
   });
 };
 

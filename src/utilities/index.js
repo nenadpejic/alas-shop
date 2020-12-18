@@ -22,3 +22,28 @@ export const formatDate = (date) => {
 
   return `${day} ${monthNames[month]} ${year} - ${hours}:${min}:${sec}`;
 };
+
+export const createSuggested = (concatProducts) => {
+  const suggested = [];
+  for (let i = 0; i < concatProducts.length; i++) {
+    const currentProduct = concatProducts[i];
+    delete currentProduct.price;
+    delete currentProduct.total;
+    currentProduct.quantity = [currentProduct.quantity];
+    for (let j = i + 1; j < concatProducts.length; j++) {
+      if (concatProducts[j].name === currentProduct.name) {
+        currentProduct.quantity.push(concatProducts[j].quantity);
+        concatProducts.splice(j, 1);
+        j--;
+      }
+    };
+    let avg = 0;
+    currentProduct.quantity.forEach(elem => {
+      avg += elem;
+    });
+    avg = Math.floor(avg / currentProduct.quantity.length);
+    currentProduct.quantity = avg;
+    suggested.push(currentProduct);
+  };
+  return suggested;
+};
