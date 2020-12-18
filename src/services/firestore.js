@@ -53,7 +53,7 @@ export const getProducts = () => {
 
 // Users
 export const updateSuggested = (data) => {
-  // data = [{name: "Jabuka", quantity: 3}]
+  // data = [{name: "Jabuka", suggQuantity: 3}]
   return firestore.collection("users").doc(auth.currentUser.uid).update({
     suggested: data,
     suggestedCreatedAt: new Date()

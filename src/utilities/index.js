@@ -27,22 +27,23 @@ export const createSuggested = (concatProducts) => {
   const suggested = [];
   for (let i = 0; i < concatProducts.length; i++) {
     const currentProduct = concatProducts[i];
+    currentProduct.suggQuantity = [currentProduct.quantity];
     delete currentProduct.price;
     delete currentProduct.total;
-    currentProduct.quantity = [currentProduct.quantity];
+    delete currentProduct.quantity;
     for (let j = i + 1; j < concatProducts.length; j++) {
       if (concatProducts[j].name === currentProduct.name) {
-        currentProduct.quantity.push(concatProducts[j].quantity);
+        currentProduct.suggQuantity.push(concatProducts[j].quantity);
         concatProducts.splice(j, 1);
         j--;
       }
     };
     let avg = 0;
-    currentProduct.quantity.forEach(elem => {
+    currentProduct.suggQuantity.forEach(elem => {
       avg += elem;
     });
-    avg = Math.floor(avg / currentProduct.quantity.length);
-    currentProduct.quantity = avg;
+    avg = Math.floor(avg / currentProduct.suggQuantity.length);
+    currentProduct.suggQuantity = avg;
     suggested.push(currentProduct);
   };
   return suggested;
