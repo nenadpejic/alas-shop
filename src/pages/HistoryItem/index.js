@@ -42,7 +42,7 @@ const HistoryItem = () => {
           <Link to="/history">Back to History</Link>
         </button>
         <button className="back-to-home">
-          <Link to="/home">Start new list</Link>
+          <Link to="/home">Create new list</Link>
         </button>
       </div>
     </main>
