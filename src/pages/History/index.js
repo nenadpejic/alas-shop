@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getReceipts } from "../../services/firestore";
 import Receipts from "../../components/Receipts";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 const History = () => {
@@ -33,6 +34,9 @@ const History = () => {
             <Receipts key={receipt.id} receipt={receipt} />
           ))}
         </ul>
+        <button className="back-to-home">
+          <Link to="/home">Create new list</Link>
+        </button>
       </div>
     </main>
   );
