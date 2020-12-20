@@ -11,6 +11,10 @@
       margin: 0 auto 10px;
       background: $dark-gray-alpha2;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       & .list-item {
         width: 100%;
         text-align: center;
@@ -61,23 +65,28 @@
         }
 
         & .three-dots {
-          width: 42px;
-          height: 42px;
+          width: 44px;
+          height: 44px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
 
-          & p {
-            font-size: map-get($font-size, "small-");
-            margin: -4px;
-            color: $white;
+          svg {
+              width: 24px;
+              // &:hover {
+              //   fill: red;
+              // }
+          }
+
+          &:hover {
             cursor: pointer;
           }
         }
       }
 
         & .button-wrapper {
+          animation: drop-down-shopping-buttons 0.3s forwards;
           width: 80%;
           height: 0;
           padding: 4px;
@@ -85,78 +94,20 @@
           justify-content: space-between;
           transform: scale(1, 0);
           
-          & button {
-            border: none;
-            outline: none;
-            width: 40px;
-            height: 26px;
+          & div {
             background: $white;
-            opacity: 1;
+            padding: 0.4rem;
+            width: 42px;
+            height: 42px;
             border-radius: 10px;
             border: 2px solid transparent;
             cursor: pointer;
             transition: 0.5s all ease-in-out;
-          }
 
-          & .minus {
-            font-size: 20px;
-
-            &:hover {
-              color: $red;
-              border: 2px solid $red;
+            & img {
+              width: 100%;
             }
           }
-
-          & .plus {
-            font-size: 20px;
-
-            &:hover {
-              color: $light-green;
-              border: 2px solid $light-green;
-            }
-          }
-
-          & .delete-item {
-            position: relative;
-            
-            &::before {
-              content: '';
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              width: 20px;
-              height: 3px;
-              background: red;
-              transform: translate(-50%, -50%) rotate(35deg);
-              transition: 0.5s all ease-in-out;
-            }
-            &::after {
-              content: '';
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              width: 20px;
-              height: 3px;
-              background: red;
-              transform: translate(-50%, -50%) rotate(-35deg);
-              transition: 0.5s all ease-in-out;
-            }
-
-            &:hover {
-              border: 2px solid $red;
-            }
-            &:hover::before {
-              transform: translate(-10px, -1px) rotate(-35deg);
-            }
-            &:hover::after {
-              transform: translate(-10px, -1px) rotate(35deg);
-            }
-          }
-
-        }
-
-        & .open {
-          animation: drop-down-shopping-buttons 0.3s forwards;
         }
       }
     }
