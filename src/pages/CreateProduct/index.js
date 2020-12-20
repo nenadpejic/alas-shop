@@ -28,7 +28,7 @@ const CreateProduct = () => {
   };
 
   return (
-    <main className="main">
+    <main className="create-product">
       <div className="wrapper">
         <h1>Create product</h1>
         <form className="create-product-form" onSubmit={handleSubmit}>

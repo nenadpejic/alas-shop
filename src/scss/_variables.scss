@@ -1,5 +1,6 @@
 // Colors
 $white: #fff;
+$white-alpha: rgba(255,255,255,0.7);
 $black: #000;
 $light-green: #40ba07;
 $dark-gray: #222;
@@ -21,6 +22,7 @@ $font-weight: (
 );
 
 $font-size: (
+    'small--': 10px, 
     'small-': 12px, 
     'small': 15px,
     'small+': 17px,

@@ -25,7 +25,7 @@ const History = () => {
   }, []);
 
   return (
-    <main className="main">
+    <main className="history">
       <div className="wrapper">
         <h1>Lista kupovina</h1>
         <ul className="shopping-list">

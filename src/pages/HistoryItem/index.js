@@ -28,22 +28,30 @@ const HistoryItem = () => {
   }, [slug]);
 
   return (
-    <main className="main">
+    <main className="history">
       <div className="wrapper">
         <h1 className="title">List of products</h1>
         <p className="date">{createdAt}</p>
         <ul className="list-of-products">
+          <div className="product-heading">
+            <p>Name</p>
+            <p>Quantity</p>
+            <p>Total</p>
+            <p>Price</p>
+          </div>
           {products.map((product, index) => (
             <Receipt key={index} product={product} />
           ))}
         </ul>
         <div className="total-price">Total Price: {totalPrice}</div>
-        <button className="back-to-history">
-          <Link to="/history">Back to History</Link>
-        </button>
-        <button className="back-to-home">
-          <Link to="/home">Start new list</Link>
-        </button>
+        <div className="button-wrapper">
+          <button className="back-to-history">
+            <Link to="/history">Back to History</Link>
+          </button>
+          <button className="back-to-home">
+            <Link to="/home">Start new list</Link>
+          </button>
+        </div>
       </div>
     </main>
   );

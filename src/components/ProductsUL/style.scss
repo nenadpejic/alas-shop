@@ -4,114 +4,212 @@
 .home {
   & .wrapper {
     & .product-list {
-      width: 300px;
-      max-height: 250px;
+      max-width: 300px;
+      width: 100%;
+      height: 60vh;
       overflow: auto;
-      margin: auto;
-      margin-bottom: 20px;
+      margin: 0 auto 10px;
+      background: $dark-gray-alpha2;
 
       & .list-item {
         width: 100%;
-        display: flex;
-        background: $dark-gray-alpha;
-        border: 2px solid $orange;
+        text-align: center;
+        color: red;
         padding: 5px;
-        margin-bottom: 8px;
-        border-radius: 10px;
+        border-bottom: 1px solid $orange;
 
-        & .delete-item {
-          width: 25px;
-          height: 25px;
-          margin-top: 50%;
-          background: url("../../assets/img/trashbin.png");
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: 80%;
-          border: none;
-          outline: none;
-          cursor: pointer;
-        }
-
-        & .product-wrapper {
-          width: 60%;
-
-          & .product-name {
-            color: $white;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: map-get($font-weight, "medium");
-          }
-
-          & .product-price {
-            color: $white;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: map-get($font-weight, "medium");
-          }
-
-          & .suggested-amount {
-            color: $orange;
-            font-style: italic;
-            text-align: center;
-            font-size: map-get($font-size, "small-");
-          }
-        }
-
-        & .btn-wrapper {
+        & .content-wrapper {
           display: flex;
+          justify-content: space-between;
           align-items: center;
-          justify-content: center;
-          width: 40%;
 
-          & .amount {
-            padding: 10px;
-            color: $white;
+        & .text-LI {
+          width: 90%;
+
+          & .product-wrapper {
+            display: flex;
+            justify-content: space-between;
+
+            & .product-name {
+              text-align: left;
+              padding: 5px;
+              width: 50%;
+              color: $white;
+              text-transform: uppercase;
+              font-weight: map-get($font-weight, "medium");
+            }  
+            & .amount {
+              width: 20%;
+              padding: 5px;
+              color: $white;
+            }
+            & .product-price {
+              padding: 5px;
+              color: $white;
+              text-transform: uppercase;
+              text-align: center;
+              font-weight: map-get($font-weight, "medium");
+            }
           }
 
+            & .suggested-amount {
+              color: $orange;
+              font-style: italic;
+              text-align: left;
+              font-size: map-get($font-size, "small-");
+            }
+        }
+
+        & .three-dots {
+          width: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          & p {
+            font-size: map-get($font-size, "small-");
+            margin: -4px;
+            color: $white;
+            cursor: pointer;
+          }
+        }
+      }
+
+        & .button-wrapper {
+          width: 80%;
+          height: 0;
+          padding: 4px;
+          display: flex;
+          justify-content: space-between;
+          transform: scale(1, 0);
+          
           & button {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
             border: none;
             outline: none;
-            cursor: pointer;
-            font-size: map-get($font-size, "medium");
-            position: relative;
+            width: 40px;
+            height: 26px;
+            background: $white;
+            opacity: 1;
+            border-radius: 10px;
             border: 2px solid transparent;
-            transition: 0.5s all ease;
+            cursor: pointer;
+            transition: 0.5s all ease-in-out;
+          }
 
-            & .plus-span,
-            & .minus-span {
+          & .minus {
+            font-size: 20px;
+
+            &:hover {
+              color: $red;
+              border: 2px solid $red;
+            }
+          }
+
+          & .plus {
+            font-size: 20px;
+
+            &:hover {
+              color: $light-green;
+              border: 2px solid $light-green;
+            }
+          }
+
+          & .delete-item {
+            position: relative;
+            
+            &::before {
+              content: '';
               position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              transition: 0.5s all ease;
+              top: 50%;
+              left: 50%;
+              width: 20px;
+              height: 3px;
+              background: red;
+              transform: translate(-50%, -50%) rotate(35deg);
+              transition: 0.5s all ease-in-out;
+            }
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 20px;
+              height: 3px;
+              background: red;
+              transform: translate(-50%, -50%) rotate(-35deg);
+              transition: 0.5s all ease-in-out;
             }
 
-            & .plus-span {
-              top: 0px;
+            &:hover {
+              border: 2px solid $red;
             }
-            & .minus-span {
-              top: -2px;
+            &:hover::before {
+              transform: translate(-10px, -1px) rotate(-35deg);
+            }
+            &:hover::after {
+              transform: translate(-10px, -1px) rotate(35deg);
             }
           }
 
-          & .plus:hover {
-            border: 2px solid $light-green;
-          }
-          & .plus:hover .plus-span {
-            color: $light-green;
-          }
-
-          & .minus:hover {
-            border: 2px solid $red;
-          }
-          & .minus:hover .minus-span {
-            color: $red;
-          }
         }
+
+        & .open {
+          animation: drop-down-shopping-buttons 2s forwards;
+        }
+
+        // & .btn-wrapper {
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   width: 40%;
+
+
+
+        //   & button {
+        //     width: 25px;
+        //     height: 25px;
+        //     border-radius: 50%;
+        //     border: none;
+        //     outline: none;
+        //     cursor: pointer;
+        //     font-size: map-get($font-size, "medium");
+        //     position: relative;
+        //     border: 2px solid transparent;
+        //     transition: 0.5s all ease;
+
+        //     & .plus-span,
+        //     & .minus-span {
+        //       position: absolute;
+        //       top: 0;
+        //       left: 0;
+        //       width: 100%;
+        //       height: 100%;
+        //       transition: 0.5s all ease;
+        //     }
+
+        //     & .plus-span {
+        //       top: 0px;
+        //     }
+        //     & .minus-span {
+        //       top: -2px;
+        //     }
+        //   }
+
+        //   & .plus:hover {
+        //     border: 2px solid $light-green;
+        //   }
+        //   & .plus:hover .plus-span {
+        //     color: $light-green;
+        //   }
+
+        //   & .minus:hover {
+        //     border: 2px solid $red;
+        //   }
+        //   & .minus:hover .minus-span {
+        //     color: $red;
+        //   }
+        // }
       }
     }
   }

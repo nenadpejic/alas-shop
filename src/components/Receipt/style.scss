@@ -1,34 +1,24 @@
 @import "../../scss/variables";
 @import "../../scss/mixin";
 
-.main {
+.history {
 
-    & .wrapper {
+& .wrapper {
 
-        & .list-of-products {
+    & .receipt-list-item {
+            border-radius: 10px;
+            margin-bottom: 4px;
+            // padding: 5px;
+            // border: 1px solid $orange;
 
-            & li {
-                border-radius: 10px;
-                margin-bottom: 4px;
-                display: flex;
-                justify-content: space-between;
-                padding: 5px;
-                border: 1px solid $orange;
-
-                & p {
-                    font-style: italic;
-                    font-size: map-get($font-size, 'small-');
-                    color: $orange;
-
-                    & span {
-                        font-style: initial;
-                        margin: 4px;
-                        font-size: map-get($font-size, 'small+');
-                        font-weight: map-get($font-weight, 'heavy');
-                        color: $white;
-                        letter-spacing: 0.7px;
-                    }
-                }
+            & p {
+                // font-style: italic;
+                font-size: map-get($font-size, 'small');
+                font-weight: map-get($font-weight, 'heavy');
+                color: $orange;
+                display: inline-block;
+                width: 25%;
+                text-align: center;
             }
         }
     }

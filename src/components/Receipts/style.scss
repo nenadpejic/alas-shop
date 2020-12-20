@@ -1,12 +1,11 @@
 @import "../../scss/variables";
 @import "../../scss/mixin";
 
-.main {
+.history {
 
     & .wrapper {
       
         & .shopping-list {
-          padding: 20px;
 
           & li {
             background: $dark-gray-alpha2;

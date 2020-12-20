@@ -31,3 +31,14 @@ $desktop: 1023px;
         background: $dark-gray-alpha;
     }
 }
+
+@keyframes drop-down-shopping-buttons {
+    from {
+        height: 0px;
+        transform: scale(1, 0);
+    }
+    to {
+        height: 30px;
+        transform: scale(1, 1);
+    }
+}

@@ -23,13 +23,13 @@
         
         & h1 {
             color: $white;
-            font-size: 50px;
-            padding: 0 0 20px 0;
+            padding: 10px;
         }
 
         & .signin-form {
-            width: 300px;
-            padding: 20px;
+            max-width: 300px;
+            width: 100%;
+            padding: 5px;
             margin-bottom: 20px;
             border-radius: 20px;
             display: flex;
@@ -46,7 +46,8 @@
             }
             
             & input {
-                width: 200px;
+                max-width: 200px;
+                width: 100%;
                 margin-bottom: 15px;
                 padding: 5px 0 5px 10px;
                 border-radius: 5px;
@@ -87,7 +88,8 @@
         & .existingAcc {
             color: $white;
             background: $dark-gray-alpha;
-            padding: 5px;
+            text-align: center;
+            padding: 10px;
             margin-bottom: 200px;
             border-radius: 10px;
 

@@ -3,40 +3,41 @@ import React from "react";
 const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
   return (
     <li className="list-item">
-      <div>
-        <button
-          className="delete-item"
-          type="button"
-          onClick={() => removeItem(elem)}
-        ></button>
+      <div className="content-wrapper">
+        <div className="text-LI">
+          <div className="product-wrapper">
+            <p className="product-name">{elem.name}</p>
+            <p className="amount">{elem.quantity}</p>
+            <p className="product-price">{elem.price} rsd</p>
+          </div>
+          {elem.suggQuantity && (
+            <p className="suggested-amount">
+              Suggested quantity: {elem.suggQuantity}
+            </p>
+          )}
+        </div>
+        <div className="three-dots">
+          <p>&#9675;</p>
+          <p>&#9675;</p>
+          <p>&#9675;</p>
+        </div>
       </div>
-      <div className="product-wrapper">
-        <p className="product-name">{elem.name}</p>
-        {elem.suggQuantity && (
-          <p className="suggested-amount">
-            Suggested quantity: {elem.suggQuantity}
-          </p>
-        )}
-        <p className="product-price">{elem.price} rsd</p>
-      </div>
-
-      <div className="btn-wrapper">
+      <div className="button-wrapper open">
         <button
           className="minus"
           type="button"
           onClick={() => handleQuantity(elem, "-")}
-        >
-          <span className="minus-span">-</span>
-        </button>
-
-        <div className="amount">{elem.quantity}</div>
-
+        >-</button>
         <button
           className="plus"
           type="button"
           onClick={() => handleQuantity(elem, "+")}
-        >
-          <span className="plus-span">+</span>
+        >+</button>
+        <button></button>
+        <button
+          className="delete-item"
+          type="button"
+          onClick={() => removeItem(elem)}>
         </button>
       </div>
     </li>

@@ -6,13 +6,6 @@
 
     .wrapper {
 
-        @include tablet {
-            padding: 0 15px;
-        }
-        @include mobile {
-            padding: 0 10px;
-        }
-
         .landingTitle {
             text-align: center;
             padding: 50px;
