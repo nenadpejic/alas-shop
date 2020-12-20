@@ -22,7 +22,7 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
           <p>&#9675;</p>
         </div>
       </div>
-      <div className="button-wrapper open">
+      <div className="button-wrapper">
         <button
           className="minus"
           type="button"
