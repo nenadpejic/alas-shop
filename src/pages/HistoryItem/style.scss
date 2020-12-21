@@ -2,17 +2,13 @@
 @import "../../scss/mixin";
 
 .history {
-  min-height: calc(100vh - 150px);
 
   & .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    & .title {
-      padding-top: 50px;
-    }
+    padding-bottom: 50px;
 
     & .date {
       max-width: 400px;
@@ -77,11 +73,13 @@
         outline: none;
         background: $orange;
         position: relative;
-        transition: 0.5s ease;
+        transition: all 0.4s ease;
+        border: 3px solid transparent;
 
         &:hover {
           &:hover {
-            box-shadow: 0 0 10px 2px $orange;
+            box-shadow: 0 0 15px 4px $white;
+            border: 3px solid $white;
           }
         }
 

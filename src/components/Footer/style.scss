@@ -9,5 +9,14 @@
         align-items: center;
         justify-content: center;
         color: $white;
+
+        & p {
+
+            & span {
+
+                color: $orange;
+                font-weight: map-get($font-weight, 'heavy');
+            }
+        }
     }
 }

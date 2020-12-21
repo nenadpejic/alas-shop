@@ -2,7 +2,6 @@
 @import '../../scss/mixin';
 
 .landing {
-    min-height: calc(100vh - 150px);
 
     .wrapper {
 
@@ -24,7 +23,7 @@
             text-align: center;
             margin-bottom: 20px;
             font-size: map-get($font-size, 'medium');
-            background: $dark-gray-alpha;
+            background: $dark-gray-alpha2;
             border-radius: 10px;
             padding: 10px;
 

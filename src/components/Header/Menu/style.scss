@@ -15,27 +15,20 @@
 
           & .drop-down-menu {
             position: absolute;
+            background: $dark-gray-alpha2;
             top: 100%;
             right: 0;
 
             & li {
               list-style-type: none;
-              margin-bottom: 5px;
               padding: 10px;
               width: 150px;
               font-size: map-get($font-size, 'small-');
               text-align: right;
-              background: $dark-gray-alpha2;
               border: 3px solid transparent;
               transition: 0.5s all ease;
               position: relative;
               overflow: hidden;
-            }
-
-            & .exit-LI {
-              display: flex; 
-              align-items: center;
-              justify-content: space-between;
             }
 
             & .information-LI {
@@ -44,7 +37,9 @@
 
             & .history-LI {
               color: $white;
-              padding: 0;
+              padding: 10px 0;
+              border-top: 1px solid $gray;
+              border-bottom: 1px solid $gray;
 
               & a {
                 text-decoration: none;
@@ -60,7 +55,7 @@
 
             & .admin-LI {
               color: $white;
-              padding: 0;
+              padding: 10px 0 0 0;
 
               & a {
                 text-decoration: none;
@@ -76,7 +71,8 @@
 
             & .create-product-LI {
               color: $white;
-              padding: 0;
+              padding: 0 0 10px 0;
+              border-bottom: 1px solid $gray;
 
               & a {
                 text-decoration: none;
@@ -88,6 +84,10 @@
                   color: $orange;
                 }
               }
+            }
+
+            & .sign-out {
+              padding: 20px 10px;
             }
 
             & li:hover {

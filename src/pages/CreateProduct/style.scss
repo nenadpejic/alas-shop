@@ -1,35 +1,13 @@
 @import "../../scss/variables";
 @import "../../scss/mixin";
 
-// .wrapper-form {
-//   width: 300px;
-//   border: 1px solid white;
-//   background-color: yellowgreen;
-//   display: flex;
-//   flex-direction: column;
-//   margin: auto;
-// }
-
-// .wrapper-form label,
-// input {
-//   padding: 10px;
-// }
-
-// .wrapper-form button {
-//   padding: 10px;
-//   margin-top: 20px;
-//   background-color: blue;
-// }
-
 .create-product {
-  min-height: calc(100vh - 150px);
 
   & .wrapper {    
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 100px;
 
     & h1 {
       color: $white;
@@ -79,15 +57,16 @@
         border-radius: 5px;
         font-weight: bold;
         outline: none;
-        border: none;
+        border: 3px solid transparent;
         background: $orange;
         color: white;
         cursor: pointer;
-        transition: 0.5s all;
+        transition: all 0.4s ease;
         margin-bottom: 15px;
 
       &:hover {
-          box-shadow: 0 0 10px 2px $orange;
+        box-shadow: 0 0 15px 4px $white;
+        border: 3px solid $white;
         }
       }  
     }

@@ -34,7 +34,7 @@ const History = () => {
             <Receipts key={receipt.id} receipt={receipt} />
           ))}
         </ul>
-        <button className="back-to-home">
+        <button className="create-new-list">
           <Link to="/home">Create new list</Link>
         </button>
       </div>

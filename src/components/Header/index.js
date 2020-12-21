@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo2.png";
+import Logo from "../../assets/img/logo.png";
 import "./style.scss";
 import { UserContext } from "../../contexts/UserContext";
 import Menu from "./Menu";

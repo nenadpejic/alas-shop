@@ -34,9 +34,8 @@ const Menu = ({ setMenu, menuRef }) => {
 
   return (
     <ul className="drop-down-menu" onClick={handleClickInside}>
-      <li className="exit-LI">
-        <span onClick={() => setMenu(false)}>X</span>
-        <span>Account</span>
+      <li className="account">
+        <p>Account</p>
       </li>
       <li className="information-LI">
         <p>{username}</p>
@@ -56,7 +55,7 @@ const Menu = ({ setMenu, menuRef }) => {
           </li>
         </>
       )}
-      <li onClick={handleSignOut}>Sign out</li>
+      <li className="sign-out" onClick={handleSignOut}>Sign out</li>
     </ul>
   );
 };

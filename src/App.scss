@@ -17,6 +17,14 @@ body {
     font-family: $roboto-slab;
 }
 
+.landing,
+.home,
+.history,
+.create-product,
+.admin {
+    min-height: calc(100vh - 140px);
+}
+
 .wrapper {
     max-width: 1200px;
     width: 100%;

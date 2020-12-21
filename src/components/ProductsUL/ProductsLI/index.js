@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as Ellipsis } from "../../../assets/icons/ellipsis.svg";
-import minus from "../../../assets/icons/minus.svg";
-import plus from "../../../assets/icons/plus.svg";
-import check from "../../../assets/icons/check.svg";
-import trash from "../../../assets/icons/trash.svg";
+import { ReactComponent as Minus } from "../../../assets/icons/minus.svg";
+import { ReactComponent as Plus } from "../../../assets/icons/plus.svg";
+import { ReactComponent as Check } from "../../../assets/icons/check.svg";
+import { ReactComponent as Trash } from "../../../assets/icons/trash.svg";
 
-const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
-  const [isMenuShown, setIsMenuShown] = useState(false);
-
-  const handleThreeDots = () => {
-    setIsMenuShown(!isMenuShown);
-  }
-
+const ProductsLI = ({
+  elem,
+  removeItem,
+  handleQuantity,
+  toggleItem,
+  index,
+}) => {
   return (
     <li className="list-item">
       <div className="content-wrapper">
@@ -23,43 +23,43 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
           </div>
           {elem.suggQuantity && (
             <p className="suggested-amount">
-              Suggested quantity: {elem.suggQuantity}
+              Suggested quantity: <span className="suggested-amount-number"> {elem.suggQuantity} </span>
             </p>
           )}
         </div>
-        <div className="three-dots" onClick={handleThreeDots}>
+        <div className="three-dots" onClick={() => toggleItem(index)}>
           <Ellipsis />
         </div>
       </div>
 
-      {
-        isMenuShown && <div className="button-wrapper">
+      {elem.toggled && (
+        <div className="button-wrapper">
           <div
-            // className="minus"
+            className="minus"
             onClick={() => handleQuantity(elem, "-")}
           >
-            <img src={minus} alt="minus" />
+            <Minus />
           </div>
           <div
-            // className="plus"
+            className="plus"
             onClick={() => handleQuantity(elem, "+")}
           >
-            <img src={plus} alt="plus" />
+            <Plus />
           </div>
           <div
             // className="check"
-            onClick={handleThreeDots}
+            onClick={() => toggleItem(!index)}
           >
-            <img src={check} alt="check" />
+            <Check />
           </div>
           <div
-            // className="delete-item"
+            className="delete-item"
             onClick={() => removeItem(elem)}
           >
-            <img src={trash} alt="trash" />
+            <Trash />
           </div>
         </div>
-      }
+      )}
     </li>
   );
 };

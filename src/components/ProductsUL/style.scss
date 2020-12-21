@@ -57,10 +57,16 @@
           }
 
             & .suggested-amount {
-              color: $orange;
-              font-style: italic;
+              color: $red;
+              padding: 0 0 5px 5px;
               text-align: left;
               font-size: map-get($font-size, "small-");
+
+              & .suggested-amount-number {
+                padding-left: 5px;
+                color: $red;
+                font-size: map-get($font-size, 'small+');
+              }
             }
         }
 
@@ -74,9 +80,6 @@
 
           svg {
               width: 24px;
-              // &:hover {
-              //   fill: red;
-              // }
           }
 
           &:hover {
@@ -86,26 +89,57 @@
       }
 
         & .button-wrapper {
-          animation: drop-down-shopping-buttons 0.3s forwards;
+          animation: drop-down-shopping-buttons 0.3s forwards ease-in;
           width: 80%;
-          height: 0;
           padding: 4px;
           display: flex;
           justify-content: space-between;
           transform: scale(1, 0);
           
           & div {
-            background: $white;
-            padding: 0.4rem;
-            width: 42px;
-            height: 42px;
+            background: $gray;
+            padding: 5px;
+            width: 35px;
+            height: 35px;
             border-radius: 10px;
-            border: 2px solid transparent;
+            border: 3px solid transparent;
             cursor: pointer;
-            transition: 0.5s all ease-in-out;
+            transition: 0.2s all ease-in-out;
 
-            & img {
-              width: 100%;
+            & svg {
+              width: 20px;
+              height: 20px;
+              fill: $white;
+              transition: 0.2s all ease-in-out;
+            }
+
+            &.minus:hover {
+              border: 3px solid $red;
+
+              & svg {
+                fill: $red;
+              }
+            }
+            &.plus:hover {
+              border: 3px solid $light-green;
+
+              & svg {
+                fill: $light-green;
+              }
+            }
+            &.check:hover {
+              border: 3px solid $light-green;
+
+              & svg {
+                fill: $light-green;
+              }
+            }
+            &.delete-item:hover {
+              border: 3px solid $red;
+
+              & svg {
+                fill: $red;
+              }
             }
           }
         }
