@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.scss';
-import logo from "../../assets/logo2.png";
+import logo from "../../assets/img/logo.png";
 import { auth } from "../../services/fire";
 
 const Signin = () => {
@@ -12,7 +12,7 @@ const Signin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrMsg("");
-    
+
     auth.signInWithEmailAndPassword(email, password)
       .then(res => {
         // console.log(res);

@@ -2,7 +2,7 @@
 @import '../../scss/mixin';
 
 .header {
-    height: 100px;
+    height: 90px;
 
     & .wrapper {
         display: flex;
@@ -10,16 +10,15 @@
         overflow: visible;
         
         & .logoLink {
-            margin: 10px;
+            margin: 5px;
 
             & .logo {
-                width: 80px;
+                width: auto;
+                height: 80px;
             }
         }
 
         & .nav {
-            margin: 10px;
-            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -46,46 +45,26 @@
                         color: $black;
                         border-radius: 10px;
                         font-size: map-get($font-size, 'medium');
+                        transition: all 0.4s ease-in-out;
+
+                        border: 3px solid transparent;
 
                         &:hover {
                             background: $orange;
-                            transition: all 0.5s;
-                            box-shadow: 0 0 10px 2px $orange;
                             color: $white;
-                            font-weight: map-get($font-weight, 'heavy');
+                            font-weight: map-get($font-weight, 'heavy'); 
+                            box-shadow: 0 0 15px 4px $white;
+                            border: 3px solid $white;
                         }
                     }
                 }
                 & .user-email {
                     color: $white;
                     border-bottom: 1px solid $white;
-                    // transition: 0.5s all ease;
                     position: relative;
 
                     &:hover {
-                        // color: $orange;
-                        // border-bottom: 1px solid $orange;
                         cursor: pointer;
-                    }
-                }
-
-                & .signout {
-                    width: 100px;
-                    height: 40px;
-                    background: $white;
-                    color: $black;
-                    border-radius: 10px;
-                    border: none;
-                    outline: none;
-                    font-size: map-get($font-size, 'medium');
-                    cursor: pointer;
-
-                    &:hover {
-                        background: $orange;
-                        transition: all 0.5s;
-                        box-shadow: 0 0 10px 2px $orange;
-                        color: $white;
-                        font-weight: map-get($font-weight, 'medium');
                     }
                 }
             }

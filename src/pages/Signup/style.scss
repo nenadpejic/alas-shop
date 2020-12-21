@@ -65,7 +65,7 @@
                 border-radius: 5px;
                 font-weight: bold;
                 outline: none;
-                border: none;
+                border: 3px solid transparent;
                 background: $orange;
                 color: white;
                 cursor: pointer;
@@ -73,7 +73,8 @@
                 margin-bottom: 15px;
 
                 &:hover {
-                    box-shadow: 0 0 10px 2px $orange;
+                    box-shadow: 0 0 15px 4px $white;
+                    border: 3px solid $white;
                 }
             }
             

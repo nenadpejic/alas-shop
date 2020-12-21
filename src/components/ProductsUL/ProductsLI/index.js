@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { ReactComponent as Ellipsis } from "../../../assets/icons/ellipsis.svg";
+import { ReactComponent as Minus } from "../../../assets/icons/minus.svg";
+import { ReactComponent as Plus } from "../../../assets/icons/plus.svg";
+import { ReactComponent as Check } from "../../../assets/icons/check.svg";
+import { ReactComponent as Trash } from "../../../assets/icons/trash.svg";
 
 const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
+  const [isMenuShown, setIsMenuShown] = useState(false);
+
+  const handleThreeDots = () => {
+    setIsMenuShown(!isMenuShown);
+  }
+
   return (
     <li className="list-item">
       <div className="content-wrapper">
@@ -12,34 +23,43 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
           </div>
           {elem.suggQuantity && (
             <p className="suggested-amount">
-              Suggested quantity: ({elem.suggQuantity})
+              Suggested quantity: <span className="suggested-amount-number"> {elem.suggQuantity} </span>
             </p>
           )}
         </div>
-        <div className="three-dots">
-          <p>&#9675;</p>
-          <p>&#9675;</p>
-          <p>&#9675;</p>
+        <div className="three-dots" onClick={handleThreeDots}>
+          <Ellipsis />
         </div>
       </div>
-      <div className="button-wrapper open">
-        <button
-          className="minus"
-          type="button"
-          onClick={() => handleQuantity(elem, "-")}
-        >-</button>
-        <button
-          className="plus"
-          type="button"
-          onClick={() => handleQuantity(elem, "+")}
-        >+</button>
-        <button></button>
-        <button
-          className="delete-item"
-          type="button"
-          onClick={() => removeItem(elem)}>
-        </button>
-      </div>
+
+      {
+        isMenuShown && <div className="button-wrapper">
+          <div
+            className="minus"
+            onClick={() => handleQuantity(elem, "-")}
+          >
+            <Minus />
+          </div>
+          <div
+            className="plus"
+            onClick={() => handleQuantity(elem, "+")}
+          >
+            <Plus />
+          </div>
+          <div
+            className="check"
+            onClick={handleThreeDots}
+          >
+            <Check />
+          </div>
+          <div
+            className="delete-item"
+            onClick={() => removeItem(elem)}
+          >
+            <Trash />
+          </div>
+        </div>
+      }
     </li>
   );
 };
