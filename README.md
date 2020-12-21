@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Alas Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://alas-shop.netlify.app/home
 
-## Available Scripts
+## Technologies:
 
-In the project directory, you can run:
+- react ^17.0.1
+- react-router-dom ^5.2.0
+- firebase ^8.1.2
+- node-sass ^4.14.1
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
+Make sure you have Node.js installed (v12.14.0 or newer).
+
+- Clone git repository
+- Run "npm install" command in terminal
+
+## Starting the project
+
+- Run "npm start" command in terminal
+
+Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `npm test`
+## Description
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Alas Shop is an app that lets you create a shopping list, helps you save on shopping expenses by giving you suggestions on the optimal quantity of products you need and thus helps in saving the environment. Also it stores your receipts in history so you can always have access to them anytime, anywhere.
 
-### `npm run build`
+## Functionalities
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The app has two levels of access, standard user role and admin role. Access on the front end is secured with Guard implementation and on the back end its secured with setting custom-claims by custom server functions. This is achieved by using Firebase services such as Authentication and Functions. All the data is stored in a NoSQL type data base service Cloud Firestore. The suggestions function looks at all your previous purchases from the data base and gives you the lower average amount as a suggestion when creating a new shopping list.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Users can:
+- create an account
+- create a shopping list
+- get an overview of their receipt
+- save the receipt to history
+- access all their previous receipts from history
+- get personalized suggestions on the optimal amount of products they may need on their next shoping list
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Admin can:
+- Assign other users as admins
+- Create products
 
-### `npm run eject`
+### Public routes
+- Landing page
+- Signup page
+- Signin page
+- PageNotFound
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Private routes
+- Home page
+- History page
+- HistoryItem page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Admin routes
+- Admin
+- Create Product
