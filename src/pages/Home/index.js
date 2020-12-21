@@ -104,6 +104,24 @@ const Home = () => {
     setProducts(newProducts);
   };
 
+  //toggled on ellipses dots just one item
+  const toggleItem = (itemId) => {
+    setProducts(
+      products.map((elem, index) => {
+        if (itemId === index) {
+          return {
+            ...elem,
+            toggled: true,
+          };
+        }
+        return {
+          ...elem,
+          toggled: false,
+        };
+      })
+    );
+  };
+
   //Create Receipt
   const handleReceipt = () => {
     let totalPrice = 0;
@@ -153,6 +171,7 @@ const Home = () => {
                   products={products}
                   removeItem={removeItem}
                   handleQuantity={handleQuantity}
+                  toggleItem={toggleItem}
                 />
               )}
             </div>

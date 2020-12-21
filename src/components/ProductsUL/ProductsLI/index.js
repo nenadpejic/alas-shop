@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as Ellipsis } from "../../../assets/icons/ellipsis.svg";
 import { ReactComponent as Minus } from "../../../assets/icons/minus.svg";
 import { ReactComponent as Plus } from "../../../assets/icons/plus.svg";
 import { ReactComponent as Check } from "../../../assets/icons/check.svg";
 import { ReactComponent as Trash } from "../../../assets/icons/trash.svg";
 
-const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
-  const [isMenuShown, setIsMenuShown] = useState(false);
-
-  const handleThreeDots = () => {
-    setIsMenuShown(!isMenuShown);
-  }
-
+const ProductsLI = ({
+  elem,
+  removeItem,
+  handleQuantity,
+  toggleItem,
+  index,
+}) => {
   return (
     <li className="list-item">
       <div className="content-wrapper">
@@ -27,13 +27,13 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
             </p>
           )}
         </div>
-        <div className="three-dots" onClick={handleThreeDots}>
+        <div className="three-dots" onClick={() => toggleItem(index)}>
           <Ellipsis />
         </div>
       </div>
 
-      {
-        isMenuShown && <div className="button-wrapper">
+      {elem.toggled && (
+        <div className="button-wrapper">
           <div
             className="minus"
             onClick={() => handleQuantity(elem, "-")}
@@ -47,8 +47,8 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
             <Plus />
           </div>
           <div
-            className="check"
-            onClick={handleThreeDots}
+            // className="check"
+            onClick={() => toggleItem(!index)}
           >
             <Check />
           </div>
@@ -59,7 +59,7 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
             <Trash />
           </div>
         </div>
-      }
+      )}
     </li>
   );
 };
