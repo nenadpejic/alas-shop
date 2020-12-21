@@ -42,7 +42,7 @@ const Home = () => {
     setInputValue(e.target.value);
     let newData = searchProducts;
     newData = newData.filter((elem) =>
-      elem.name.toLowerCase().includes(e.target.value)
+      elem.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setFilterProducts(newData);
   };
@@ -149,45 +149,45 @@ const Home = () => {
       {id ? (
         <Redirect to={`/history/${id}`} />
       ) : (
-        <main className="home">
-          <div className="wrapper">
-            <div className="search-wrapper">
-              <label>Search for food</label>
-              <input
-                type="text"
-                placeholder="Enter food name..."
-                onChange={handleChange}
-                value={inputValue}
-              />
-            </div>
-            <div className="lists-wrapper">
-              {inputValue ? (
-                <SearchedUL
-                  filterProducts={filterProducts}
-                  handleProducts={handleProducts}
+          <main className="home">
+            <div className="wrapper">
+              <div className="search-wrapper">
+                <label>Search for food</label>
+                <input
+                  type="text"
+                  placeholder="Enter food name..."
+                  onChange={handleChange}
+                  value={inputValue}
                 />
-              ) : (
-                <ProductsUL
-                  products={products}
-                  removeItem={removeItem}
-                  handleQuantity={handleQuantity}
-                  toggleItem={toggleItem}
-                />
-              )}
+              </div>
+              <div className="lists-wrapper">
+                {inputValue ? (
+                  <SearchedUL
+                    filterProducts={filterProducts}
+                    handleProducts={handleProducts}
+                  />
+                ) : (
+                    <ProductsUL
+                      products={products}
+                      removeItem={removeItem}
+                      handleQuantity={handleQuantity}
+                      toggleItem={toggleItem}
+                    />
+                  )}
+              </div>
+              <div className="button-wrapper">
+                {products.length > 0 && (
+                  <button
+                    className="checkout-btn"
+                    onClick={() => handleReceipt()}
+                  >
+                    Done
+                  </button>
+                )}
+              </div>
             </div>
-            <div className="button-wrapper">
-              {products.length > 0 && (
-                <button
-                  className="checkout-btn"
-                  onClick={() => handleReceipt()}
-                >
-                  Done
-                </button>
-              )}
-            </div>
-          </div>
-        </main>
-      )}
+          </main>
+        )}
     </>
   );
 };
