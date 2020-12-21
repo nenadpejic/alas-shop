@@ -12,7 +12,7 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
           </div>
           {elem.suggQuantity && (
             <p className="suggested-amount">
-              Suggested quantity: {elem.suggQuantity}
+              Suggested quantity: ({elem.suggQuantity})
             </p>
           )}
         </div>
@@ -22,7 +22,7 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
           <p>&#9675;</p>
         </div>
       </div>
-      <div className="button-wrapper">
+      <div className="button-wrapper open">
         <button
           className="minus"
           type="button"
