@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as Ellipsis } from "../../../assets/icons/ellipsis.svg";
 import minus from "../../../assets/icons/minus.svg";
 import plus from "../../../assets/icons/plus.svg";
 import check from "../../../assets/icons/check.svg";
 import trash from "../../../assets/icons/trash.svg";
 
-const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
-  const [isMenuShown, setIsMenuShown] = useState(false);
-
-  const handleThreeDots = () => {
-    setIsMenuShown(!isMenuShown);
-  }
-
+const ProductsLI = ({
+  elem,
+  removeItem,
+  handleQuantity,
+  toggleItem,
+  index,
+}) => {
   return (
     <li className="list-item">
       <div className="content-wrapper">
@@ -27,13 +27,13 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
             </p>
           )}
         </div>
-        <div className="three-dots" onClick={handleThreeDots}>
+        <div className="three-dots" onClick={() => toggleItem(index)}>
           <Ellipsis />
         </div>
       </div>
 
-      {
-        isMenuShown && <div className="button-wrapper">
+      {elem.toggled && (
+        <div className="button-wrapper">
           <div
             // className="minus"
             onClick={() => handleQuantity(elem, "-")}
@@ -48,7 +48,7 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
           </div>
           <div
             // className="check"
-            onClick={handleThreeDots}
+            onClick={() => toggleItem(!index)}
           >
             <img src={check} alt="check" />
           </div>
@@ -59,7 +59,7 @@ const ProductsLI = ({ elem, removeItem, handleQuantity }) => {
             <img src={trash} alt="trash" />
           </div>
         </div>
-      }
+      )}
     </li>
   );
 };
