@@ -1,4 +1,4 @@
-# alas-shop
+# Alas Shop
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/557815e8-f7a6-4053-ac53-f5661ae4a0c7/deploy-status)](https://app.netlify.com/sites/alas-shop/deploys)
 
